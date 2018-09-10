@@ -1,7 +1,4 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.novoda.bintray-release'
-apply plugin: "guru.stefma.bintrayrelease" //
-
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -53,14 +50,4 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.github.HigherPlace:AutoLayout:v1.0.0'
-}
-
-
-version = "1.0.0"
-group = "com.higher.HigherUtil"
-publish {
-    userOrg = 'higherplace'
-    artifactId = 'bryan_mvpframework'
-    desc = 'Oh hi, this is a nice description for a project, right?'
-    website = 'https://github.com/stefma/bintray-release'
 }
