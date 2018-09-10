@@ -1,18 +1,27 @@
 package com.app.base.utils.photo;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Environment;
+import android.os.Build;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 
-import com.bryan.common.utils.FileUtils;
-import com.orhanobut.logger.Logger;
+import com.app.base.BuildConfig;
+import com.app.base.constant.Constant;
+import com.app.base.utils.fileprovider.FileProvider7;
+import com.bryan.common.utils.AppDateMgr;
+import com.bryan.common.utils.log.LogUtils;
+import com.zxy.tiny.Tiny;
+import com.zxy.tiny.callback.FileCallback;
 
 import java.io.File;
 import java.util.List;
@@ -20,15 +29,17 @@ import java.util.List;
 
 /**
  * [从本地选择图片以及拍照工具类，完美适配2.0-5.0版本]
- */
+ *
+ * @author huxinwu
+ * @version 1.0
+ * @date 2015-1-7
+ **/
 public class PhotoUtils {
 
     private final String tag = PhotoUtils.class.getSimpleName();
 
-    public static final int MSG_SELECT_BMP_FINISH = 0X504;
-
     /**
-     * 裁剪图片成功后返回他
+     * 裁剪图片成功后返回
      **/
     public static final int INTENT_CROP = 2;
     /**
@@ -39,14 +50,13 @@ public class PhotoUtils {
      * 拍照成功后返回
      **/
     public static final int INTENT_SELECT = 4;
-    /**
-     * 选择图片，报事报修会使用
-     */
-    public static final int INTENT_SELECT_TWO = 5;
 
     public static final String CROP_FILE_NAME = "crop_file.jpg";
 
-    private String mImagePath = CROP_FILE_NAME;
+    private static final String TAG = "PhotoUtils2";
+
+    private String mImageName = CROP_FILE_NAME;
+
 
     /**
      * PhotoUtils对象
@@ -58,37 +68,40 @@ public class PhotoUtils {
         this.onPhotoResultListener = onPhotoResultListener;
     }
 
-    private boolean isNeedCrop = false;
-
-    public void setNeedCrop(boolean isNeedCrop) {
-        this.isNeedCrop = isNeedCrop;
-    }
-
     /**
      * 拍照
      *
      * @param
      * @return
      */
-    public void takePicture(Activity activity) {
+    public boolean takePicture(Activity activity) {
         try {
-            //每次选择图片吧之前的图片删除
-//            clearCropFile(buildUri(activity));
-            clearCacheFile(activity);
-            generateImagePath();
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, buildUri(activity));
+            File originalFile = getOriginalFile(activity);
+            if (originalFile == null) {
+                return false;
+            }
+            Uri uri;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                uri = FileProvider.getUriForFile(activity, BuildConfig._ID + Constant.Provider_File_Name, originalFile);
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                FileProvider7.grantPermissions(activity, intent, uri, true);
+            } else {
+                uri = Uri.fromFile(originalFile);
+            }
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
             if (!isIntentAvailable(activity, intent)) {
-                return;
+                return false;
             }
             activity.startActivityForResult(intent, INTENT_TAKE);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-
     /***
      * 选择一张图片
      * 图片类型，这里是image/*，当然也可以设置限制
@@ -96,61 +109,49 @@ public class PhotoUtils {
      *
      * @param activity Activity
      */
-    @SuppressLint("InlinedApi")
-    public void selectPicture(Activity activity) {
-        selectPicture(activity, INTENT_SELECT);
-    }
-
-    /***
-     * 选择一张图片
-     * 图片类型，这里是image/*，当然也可以设置限制
-     * 如：image/jpeg等
-     *
-     * @param activity Activity
-     */
-    @SuppressLint("InlinedApi")
-    public void selectPicture(Activity activity, int requestCode) {
+    public boolean selectPicture(Activity activity) {
         try {
-            //每次选择图片吧之前的图片删除
-//            clearCropFile(buildUri(activity));
-            clearCacheFile(activity);
-            Intent intent = new Intent(Intent.ACTION_PICK, null);
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-
-            if (!isIntentAvailable(activity, intent)) {
-                return;
+            Intent intent;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                intent = new Intent(Intent.ACTION_OPEN_DOCUMENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            } else {
+                intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             }
-            activity.startActivityForResult(intent, requestCode);
+            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+            if (!isIntentAvailable(activity, intent)) {
+                return false;
+            }
+            activity.startActivityForResult(intent, INTENT_SELECT);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
     /**
-     * 构建uri
+     * 获取原图的保存路径
      *
      * @param activity
      * @return
      */
-    private Uri buildUri(Activity activity) {
-        Logger.e(System.currentTimeMillis() + CROP_FILE_NAME);
-        if (checkSDCard()) {
-            File folder = new File(Environment.getExternalStorageDirectory(), "crop");
-            if (!folder.exists()) {
-                folder.mkdirs();
-            }
-            return Uri.fromFile(folder).buildUpon().appendPath(mImagePath).build();
-        } else {
-            File folder = new File(activity.getFilesDir(), "crop");
-            if (!folder.exists()) {
-                folder.mkdirs();
-            }
-            return Uri.fromFile(folder).buildUpon().appendPath(mImagePath).build();
-        }
-    }
+    private File getOriginalFile(Activity activity) {
 
-    private void generateImagePath() {
-        mImagePath = System.currentTimeMillis() + CROP_FILE_NAME;
+        try {
+            mImageName = "crop" + AppDateMgr.todayYyyyMmDdHhMmSs(AppDateMgr.DFYYYYMMDDHHMMSS) + ".jpg";
+            File file = new File(activity.getExternalFilesDir("crop"), mImageName);
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            if (file.exists()) {
+                file.delete();
+            }
+            file.createNewFile();
+            return file;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -161,31 +162,6 @@ public class PhotoUtils {
         PackageManager packageManager = activity.getPackageManager();
         List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         return list.size() > 0;
-    }
-
-    private boolean corp(Activity activity, Uri uri) {
-        Intent cropIntent = new Intent("com.android.camera.action.CROP");
-        cropIntent.setDataAndType(uri, "image/*");
-        cropIntent.putExtra("crop", "true");
-        cropIntent.putExtra("aspectX", 1);
-        cropIntent.putExtra("aspectY", 1);
-        cropIntent.putExtra("outputX", 200);
-        cropIntent.putExtra("outputY", 200);
-        cropIntent.putExtra("return-data", false);
-        cropIntent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-        Uri cropuri = buildUri(activity);
-        cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, cropuri);
-        if (!isIntentAvailable(activity, cropIntent)) {
-            return false;
-        } else {
-            try {
-                activity.startActivityForResult(cropIntent, INTENT_CROP);
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
     }
 
     /**
@@ -200,80 +176,122 @@ public class PhotoUtils {
             Log.e(tag, "onPhotoResultListener is not null");
             return;
         }
-
         switch (requestCode) {
-            //拍照
-            case INTENT_TAKE:
-//                if (new File(buildUri(activity).getPath()).exists()) {
-//                    if (corp(activity, buildUri(activity))) {
-//                        return;
-//                    }
-//                    onPhotoResultListener.onPhotoCancel();
-//                }
-                if (resultCode == Activity.RESULT_OK && new File(buildUri(activity).getPath()).exists()) {
-                    onPhotoResultListener.onPhotoResult(buildUri(activity), requestCode);
-                } else {
-                    onPhotoResultListener.onPhotoCancel();
-                }
-                break;
-            case INTENT_SELECT:  //选择图片
-                if (isNeedCrop) {
-                    generateImagePath();
-                    if (data != null && data.getData() != null) {
-                        Uri imageUri = data.getData();
-                        if (corp(activity, imageUri)) {
-                            return;
-                        }
+            case INTENT_TAKE://拍照
+                if (resultCode == Activity.RESULT_OK) {
+                    File _file = new File(activity.getExternalFilesDir("crop"), mImageName);
+                    if (_file.exists()) {
+                        compressFile(_file, activity);
+                    } else {
+                        onPhotoResultListener.onPhotoCancel();
                     }
-                    onPhotoResultListener.onPhotoCancel();
                 } else {
-                    onPhotoResultListener.onPhotoResult(data.getData(), requestCode);
+                    onPhotoResultListener.onPhotoCancel();
                 }
                 break;
-            //截图
-            case INTENT_CROP:
-                if (resultCode == Activity.RESULT_OK && new File(buildUri(activity).getPath()).exists()) {
-                    onPhotoResultListener.onPhotoResult(buildUri(activity), requestCode);
+            case INTENT_SELECT:  //选择图片//content://com.android.providers.media.documents/document/image%3A811598
+                if (resultCode == Activity.RESULT_OK && data.getData() != null) {
+                    String imagePath;
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        //4.4 及以上系统使用这个方法处理图片
+                        imagePath = handleImageOnKitKat(activity, data);
+                    } else {
+                        //4.4 及以下系统使用这个方法处理图片
+                        imagePath = handleImageBeforeKitKat(activity, data);
+                    }
+                    File file = new File(imagePath);
+                    if (file.exists()) {
+                        compressFile(file, activity);
+                    } else {
+                        onPhotoResultListener.onPhotoCancel();
+                    }
+                } else {
+                    onPhotoResultListener.onPhotoCancel();
                 }
                 break;
         }
     }
 
-    /**
-     * 删除文件
-     *
-     * @param uri
-     * @return
-     */
-    public boolean clearCropFile(Uri uri) {
-        if (uri == null) {
-            return false;
-        }
+    private String handleImageOnKitKat(Activity activity, Intent data) {
+        String imagePath = null;
+        Uri uri = data.getData();
+        //data是从相册返回的数据
+        //android 7.1.1
+        //uri == content://com.android.providers.media.documents/document/image%3A75
+        //uri.getAuthority() == com.android.providers.media.documents
+        //uri.getPath() == /document/image:75
+        //DocumentsContract.getDocumentId(uri) == image:75
+        //MediaStore.Images.Media.EXTERNAL_CONTENT_URI == content://media/external/images/media
+        //真实路径 path == /storage/emulated/0/Download/picture.jpg
 
-        File file = new File(uri.getPath());
-        if (file.exists()) {
-            boolean result = file.delete();
-            if (result) {
-                Log.i(tag, "Cached crop file cleared.");
-            } else {
-                Log.e(tag, "Failed to clear cached crop file.");
+        //android4.4
+        //uri == content://com.android.providers.media.documents/document/image%3A28
+        //uri.getAuthority() == com.android.providers.media.documents
+        //uri.getPath() == /document/image:28
+        //DocumentsContract.getDocumentId(uri) == image:28
+        //MediaStore.Images.Media.EXTERNAL_CONTENT_URI == content://media/external/images/media
+        //真实路径 path == /storage/sdcard/images/picture.jpg
+
+        //相册存了图片的id，并没有存实际路径。
+        //Authority就是相册数据库的标识符，这里有两个数据库，他们的标识符分别为
+        //com.android.providers.media.documents
+        //com.android.providers.downloads.documents
+        //当点击一张照片它会返回document封装了的uri，然后进行解析出资源id，
+        //然后根据id在MediaStore数据库中获取真实URL路径
+
+        //判断该Uri是否是document封装过的
+        if (DocumentsContract.isDocumentUri(activity, uri)) {
+            //如果是document类型的Uri,则通过document id 处理
+            String docId = DocumentsContract.getDocumentId(uri);
+            if ("com.android.providers.media.documents".equals(uri.getAuthority())) {
+                String id = docId.split(":")[1];
+                String selection = MediaStore.Images.Media._ID + "=" + id;
+                imagePath = getImagePath(activity, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection);
+            } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
+                //这个方法负责把id和contentUri连接成一个新的Uri
+                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"),
+                        Long.valueOf(docId));
+                imagePath = getImagePath(activity, contentUri, null);
             }
-            return result;
-        } else {
-            Log.w(tag, "Trying to clear cached crop file but it does not exist.");
+        } else if ("content".equalsIgnoreCase(uri.getScheme())) {
+            //如果是content类型的Uri,则使用普通方式处理
+            imagePath = getImagePath(activity, uri, null);
+        } else if ("file".equalsIgnoreCase(uri.getScheme())) {
+            //如果是file类型的Uri,直接获取图片路径即可
+            imagePath = uri.getPath();
         }
-
-        return false;
+        return imagePath;
     }
 
-    public void clearCacheFile(Activity activity) {
-        if (checkSDCard()) {
-            FileUtils.deleteFileFromSdcard(activity, "crop", null);
-        } else {
-            File folder = new File(activity.getFilesDir(), "crop");
-            FileUtils.deleteFileFromInternalFilesDir(activity, folder.getAbsolutePath(), null);
-        }
+    private String handleImageBeforeKitKat(Activity activity, Intent data) {
+        Uri uri = data.getData();
+        String imagePath = getImagePath(activity, uri, null);
+        return imagePath;
     }
+
+    private String getImagePath(Activity activity, Uri uri, String selection) {
+        String path = null;
+        //通过Uri和selection来获取真实路径
+        //Android系统提供了MediaScanner，MediaProvider，MediaStore等接口，并且提供了一套数据库
+        //表格，通过Content Provider的方式提供给用户。当手机开机或者有SD卡插拔等事件发生时，系统
+        //将会自动扫描SD卡和手机内存上的媒体文件，如audio，video，图片等，将相应的信息放到定义好
+        //的数据库表格中。在这个程序中，我们不需要关心如何去扫描手机中的文件，只要了解如何查询和使
+        //用这些信息就可以了。MediaStore中定义了一系列的数据表格，通过ContentResolver提供的查询
+        //接口，我们可以得到各种需要的信息。
+        //EXTERNAL_CONTENT_URI 为查询外置内存卡的，INTERNAL_CONTENT_URI为内置内存卡。
+        //MediaStore.Audio获取音频信息的类
+        //MediaStore.Images获取图片信息
+        //MediaStore.Video获取视频信息
+        Cursor cursor = activity.getContentResolver().query(uri, null, selection, null, null);
+        if (cursor != null) {
+            if (cursor.moveToNext()) {
+                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+            }
+            cursor.close();
+        }
+        return path;
+    }
+
 
     /**
      * [回调监听类]
@@ -283,7 +301,7 @@ public class PhotoUtils {
      * @date 2015-1-7
      **/
     public interface OnPhotoResultListener {
-        void onPhotoResult(Uri uri, int requestCode);
+        void onPhotoResult(Uri uri);
 
         void onPhotoCancel();
     }
@@ -296,14 +314,30 @@ public class PhotoUtils {
         this.onPhotoResultListener = onPhotoResultListener;
     }
 
-
-    /**
-     * 判断SDCard是否存在,并可写
-     *
-     * @return
-     */
-    public static boolean checkSDCard() {
-        String flag = Environment.getExternalStorageState();
-        return Environment.MEDIA_MOUNTED.equals(flag);
+    private void compressFile(File file, Context context) {
+        try {
+            Tiny.FileCompressOptions compressOptions = new Tiny.FileCompressOptions();
+            compressOptions.config = Bitmap.Config.RGB_565;
+            Tiny.getInstance().source(file).asFile().withOptions(compressOptions).compress(new FileCallback() {
+                @Override
+                public void callback(boolean isSuccess, String outfile, Throwable t) {
+                    if (isSuccess) {
+                        File file = new File(outfile);
+                        LogUtils.i(TAG, "outfile path  ----> " + outfile);
+                        LogUtils.i(TAG, "compress info len ----> " + file.length());
+                        Uri uri = Uri.fromFile(file);
+                        onPhotoResultListener.onPhotoResult(uri);
+                    } else {
+                        LogUtils.e(TAG, "compress file failed!");
+                        Uri uri = Uri.fromFile(file);
+                        onPhotoResultListener.onPhotoResult(uri);
+                    }
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            onPhotoResultListener.onPhotoCancel();
+        }
     }
+
 }

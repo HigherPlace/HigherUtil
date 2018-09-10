@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.app.base.BaseApplication;
 import com.app.base.R;
 import com.app.base.constant.Constant;
-import com.app.base.entity.AccountBean;
+import com.app.base.utils.user.AccountBean;
 import com.app.base.utils.user.UserUtil;
 import com.bryan.common.utils.AppKeyBoardMgr;
 import com.bryan.common.utils.AppManager;

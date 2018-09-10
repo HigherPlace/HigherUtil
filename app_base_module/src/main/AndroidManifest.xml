@@ -14,5 +14,8 @@
         <!-- ******************** 自动适配配置 end ******************** -->
 
         <activity android:name=".module.LargeImageView.ImageViewActivity" />
+
+
+
     </application>
 </manifest>

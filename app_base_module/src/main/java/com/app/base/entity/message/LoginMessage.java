@@ -1,6 +1,6 @@
 package com.app.base.entity.message;
 
-import com.app.base.entity.AccountBean;
+import com.app.base.utils.user.AccountBean;
 
 /**
  * 登陆信息

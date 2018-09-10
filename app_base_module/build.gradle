@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.HigherPlace'
+group = 'com.github.HigherPlace'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -25,11 +25,13 @@ android {
 
     buildTypes {
         debug {
+//            buildConfigField "String", "APPID", "com.higher.util"
+
+        }
+        release {
             minifyEnabled false
             //是否压缩对其
             zipAlignEnabled false
-        }
-        release {
             //混淆
             minifyEnabled false
             //是否压缩对其
@@ -41,6 +43,8 @@ android {
     }
 
     flavorDimensions "api"
+
+
 
     productFlavors {
 //        //开发环境
@@ -56,8 +60,9 @@ android {
 //        }
         //生产环境版本
         product {
-//            buildConfigField "String", "BASE_URL", rootProject.Base_Url.Base_Url_Release
-//            buildConfigField("boolean", "IsDebug", rootProject.Other.IsDebug)
+            buildConfigField "String", "_ID", "\"$AppId\""
+            buildConfigField "String", "_APPNAME", "\"$AppName\""
+            buildConfigField("boolean", "IsDebug", IsDebug)
         }
     }
 
@@ -87,8 +92,8 @@ dependencies {
     compile 'org.xutils:xutils:3.5.0'
 
     //bugly
-  /*  compile rootProject.ext.dependence.buglySdk
-    compile rootProject.ext.dependence.buglyNdk*/
+    /*  compile rootProject.ext.dependence.buglySdk
+      compile rootProject.ext.dependence.buglyNdk*/
 
     compile rootProject.ext.dependence.StatusLayout
     //smartRefreshLayout，跟support:design一起，不然无法预览

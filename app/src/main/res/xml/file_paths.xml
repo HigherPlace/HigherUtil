@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <!--Environment.getExternalStorageDirectory()-->
+        <external-path
+            name="BluetoothSys"
+            path="" />
+        <!--Context.getFilesDir()-->
+        <files-path
+            name="internal_file_path"
+            path="" />
+        <!--getCacheDir()-->
+        <cache-path
+            name="internal_cache_path"
+            path="" />
+        <!--Context.getExternalFilesDir(null)-->
+        <external-files-path
+            name="out_file_path"
+            path="" />
+
+        <!-- Context.getExternalCacheDir()；-->
+        <external-cache-path
+            name="out_cache_path"
+            path="" />
+        <!---->
+        <root-path
+            name="root_path"
+            path="" />
+    </paths>
+
+
+</resources>

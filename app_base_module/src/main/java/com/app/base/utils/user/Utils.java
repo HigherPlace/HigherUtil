@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.app.base.BaseApplication;
+import com.app.base.BuildConfig;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,12 +31,10 @@ public class Utils {
      */
     public static File getInternalFolder(String path) {
         File folder = null;
-        if (sdcardIsEnable()) {
-            folder = new File(BaseApplication.getGlobalContext().getFilesDir(),
-                    path);
-            if (!folder.exists()) {
-                folder.mkdirs();
-            }
+        folder = new File(BaseApplication.getGlobalContext().getFilesDir(),
+                path);
+        if (!folder.exists()) {
+            folder.mkdirs();
         }
         return folder;
     }
@@ -51,9 +50,12 @@ public class Utils {
         if (sdcardIsEnable()) {
             folder = new File(BaseApplication.getGlobalContext().getExternalFilesDir(null),
                     path);
-            if (!folder.exists()) {
-                folder.mkdirs();
-            }
+        } else {
+            folder = new File(BaseApplication.getGlobalContext().getFilesDir(),
+                    path);
+        }
+        if (!folder.exists()) {
+            folder.mkdirs();
         }
         return folder;
     }
@@ -144,7 +146,7 @@ public class Utils {
     public static void saveInfo(Context ctx, String str, String filName) {
         FileOutputStream fos = null;
         try {
-            String path = Utils.getIntechStorageDir(ctx) + "/" + filName + "/";
+            String path = Utils.getStorageDir(ctx) + File.separator + filName + File.separator;
             File dir = new File(path);
             if (!dir.exists()) {
                 dir.mkdirs();
@@ -152,7 +154,7 @@ public class Utils {
             File file = new File(path + filName);
             if (!file.exists())
                 file.createNewFile();
-            if (file.length() > 1024 * 10) {// 大于10kb则自动删除
+            if (file.length() > 1024 * 10 * 10) {// 大于10kb则自动删除
                 file.delete();
                 file.createNewFile();
             }
@@ -171,11 +173,17 @@ public class Utils {
         }
     }
 
-    public static String getIntechStorageDir(Context context) {
+    /**
+     * 获取文件保存地址
+     *
+     * @param context
+     * @return
+     */
+    public static String getStorageDir(Context context) {
         String state = Environment.getExternalStorageState();
         boolean imcc_dir_exist = false;
         if (Environment.MEDIA_MOUNTED.equals(state)) {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "智慧云");
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + BuildConfig._APPNAME);
             if (!file.exists()) {
                 if (file.mkdir())
                     imcc_dir_exist = true;
@@ -187,31 +195,11 @@ public class Utils {
         }
 
         if (imcc_dir_exist) {
-            return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "智慧云";
+            return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + BuildConfig._APPNAME;
         } else {
             return Environment.getDataDirectory().getAbsolutePath() + "/data" + "/" + context.getPackageName();
         }
     }
 
-    public static String getBitmapCacheDir(Context context) {
-        String state = Environment.getExternalStorageState();
-        boolean imcc_dir_exist = false;
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "智慧云办公");
-            if (!file.exists()) {
-                if (file.mkdir())
-                    imcc_dir_exist = true;
-                else
-                    imcc_dir_exist = false;
-            } else {
-                imcc_dir_exist = true;
-            }
-        }
 
-        if (imcc_dir_exist) {
-            return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "智慧云办公";
-        } else {
-            return Environment.getDataDirectory().getAbsolutePath() + "/data" + "/" + context.getPackageName();
-        }
-    }
 }

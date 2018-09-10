@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
-import com.app.base.entity.AccountBean;
+import com.app.base.utils.user.AccountBean;
 import com.app.base.utils.CrashHandler;
 import com.app.base.utils.net.bean.RequestBean;
 import com.app.base.utils.net.constant.Constant;
@@ -242,11 +242,11 @@ public class BaseApplication extends MultiDexApplication {
          自定义日志将会在Logcat中输出。
          建议在测试阶段建议设置成true，发布时设置为false。
          */
-        if (true) {
+        if (BuildConfig.IsDebug) {
             //如果是测试版就设置成测试设备
-            CrashReport.setIsDevelopmentDevice(this, true);
+            CrashReport.setIsDevelopmentDevice(this, BuildConfig.IsDebug);
         }
-        CrashReport.initCrashReport(getApplicationContext(), "16359df4b9", true);
+        CrashReport.initCrashReport(getApplicationContext(), "16359df4b911", BuildConfig.IsDebug);
 //        CrashReport.testJavaCrash();
 //        CrashReport.testANRCrash();
 //        CrashReport.testNativeCrash();

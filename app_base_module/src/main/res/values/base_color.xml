@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_color_w">@color/bg_activity</color>
+    <color name="colorPrimary">@color/theme_color</color>
+    <color name="colorPrimaryDark">@color/theme_color</color>
+    <color name="colorAccent">@color/theme_color</color>
+
+    <color name="bg_divider">#d9d9d9</color>
+    <color name="bg_press">#bdbdbd</color>
+    <color name="bg_activity">#eff0f2</color>
+    <color name="bg_activity_light">#F3EFF0F2</color>
+    <color name="bg_gray">#e4e5e5</color>
+    <color name="bg_gray_stroke">#d5d5d5</color>
+
+    <color name="bg_solid_public">#ebf0f6</color>
+
+    <color name="bg_padding">#eeeeee</color>
+
+    <color name="theme_color_light">#2aa7f7</color>
+    <color name="theme_color">#2aa7f7</color>
+    <color name="theme_color_press">#1d92de</color>
+
+
+</resources>

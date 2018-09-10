@@ -57,6 +57,15 @@ public class AppDateMgr {
     }
 
     /**
+     * 当天的年月日时分秒
+     *
+     * @return
+     */
+    public static String todayYyyyMmDdHhMmSs(String format) {
+        return new SimpleDateFormat(format, Locale.getDefault()).format(new Date());
+    }
+
+    /**
      * 获取年
      *
      * @param dateTime
@@ -783,6 +792,7 @@ public class AppDateMgr {
      * 日期格式：yyyy-MM-dd HH:mm:ss
      **/
     public static final String DF_YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+    public static final String DFYYYYMMDDHHMMSS = "yyyyMMddHHmmss";
 
     /**
      * 日期格式：yyyy-MM-dd HH:mm

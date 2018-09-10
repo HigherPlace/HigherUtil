@@ -1,8 +1,6 @@
 package com.app.base.utils.user;
 
 
-import com.app.base.entity.AccountBean;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -37,7 +35,7 @@ public class UserUtil implements Serializable, Cloneable {
     private static volatile UserUtil instance;
     private AccountBean user;
 
-    private static final String GLOBAL_PATH = Utils.getInternalFolder("User")
+    private static final String GLOBAL_PATH = Utils.getExternalFolder("User")
             + File.separator;
 
     private UserUtil() {

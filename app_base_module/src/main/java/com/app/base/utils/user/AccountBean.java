@@ -1,4 +1,7 @@
-package com.app.base.entity;
+package com.app.base.utils.user;
+
+import com.app.base.entity.BaseEntity;
+import com.app.base.entity.ImageEntity;
 
 import java.io.Serializable;
 import java.util.List;

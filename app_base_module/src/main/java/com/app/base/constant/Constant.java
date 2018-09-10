@@ -11,15 +11,10 @@ public interface Constant {
     //    String AppId = "2e8e82158a0f4a6fa69c2718a75cbe03";
 //    String Base_Url = BuildConfig.BASE_URL + "/api";
 
-    String WeatherSuccess = "ok";
+    String Provider_File_Name = ".fileprovider";
 
-
-    String WebSocketUrl = "ws://192.168.10.118:8080/websocket/android";
 
     interface Url {
-
-//        String P
-
 
     }
 
@@ -42,19 +37,18 @@ public interface Constant {
      * 广播的Action
      */
     interface Action {
-        String Quit = "app_quit";
+        String Quit = "higher_util_app_quit";
         String Update_Param = "UpdateParam";
     }
 
     interface Extra {
         String Data = "data";
-        String Room = "room";
+        String Bean = "bean";
     }
 
     interface RequestCode {
 
     }
-
 
     interface File {
         String Param = "param";
