@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="title_text_size">52px</dimen>
+    <dimen name="main_text_size">47px</dimen>
+    <dimen name="second_text_size">44px</dimen>
+    <dimen name="third_text_size">40px</dimen>
+    <dimen name="forth_text_size">36px</dimen>
+
+    <dimen name="common_item_height">145px</dimen>
+    <dimen name="common_padding_width">33px</dimen>
+
+    <dimen name="divider_height">1dp</dimen>
+
+    <!--验证码输入框dimen Start-->
+    <!--下划线的厚度-->
+    <dimen name="underline_stroke_width">6px</dimen>
+    <!--单位下划线非空白宽度-->
+    <dimen name="underline_width">150px</dimen>
+    <!--下划线空白间隙宽度-->
+    <dimen name="section_reduction">15px</dimen>
+
+    <dimen name="text_size">45px</dimen>
+    <dimen name="hint_size">45px</dimen>
+    <dimen name="hint_small_size">45px</dimen>
+    <dimen name="text_margin_bottom">45px</dimen>
+    <dimen name="hint_margin_bottom">75px</dimen>
+    <dimen name="view_height">180px</dimen>
+    <!--验证码输入框dimen End-->
+
+    <dimen name="title_height">46dp</dimen>
+</resources>

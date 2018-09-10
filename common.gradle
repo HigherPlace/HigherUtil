@@ -1,0 +1,69 @@
+//用来存放应用中的所有配置变量，统一管理，而不再是每个moudle里都自己写一份，修改起来更加的方便
+
+ext {
+
+  android = [compileSdkVersion   : 27,
+             buildToolsVersion   : '28.0.2',
+             applicationId       : 'com.highter.util',
+             minSdkVersion       : 21,
+             targetSdkVersion    : 22,
+             versionCode         : 1,
+             versionName         : '1.0.0',
+             multiDexEnabled     : true,
+             manifestPlaceholders: [UMENG_CHANNEL_VALUE: 'HigherUtil']]
+
+  signConfigs = ['storeFile'    : 'youdo.jks',
+                 'storePassword': 'rzq123456',
+                 'keyAlias'     : 'qndroid',
+                 'keyPassword'  : 'rzq123456']
+
+  java = ['javaVersion': JavaVersion.VERSION_1_8]
+
+  def supportVersion = '27.1.1'
+
+  dependence = [ /*统计一场类*/
+                 'libUmengAnalytics'         : 'com.umeng.analytics:analytics:latest.integration',
+                 'buglySdk'                  : 'com.tencent.bugly:crashreport:latest.release',
+                 'buglyNdk'                  : 'com.tencent.bugly:nativecrashreport:latest.release',
+                 /*官方依赖库*/
+                 'libSupportGridLayout'      : "com.android.support:gridlayout-v7:${supportVersion}",
+                 'libSupportV7'              : "com.android.support:appcompat-v7:${supportVersion}",
+                 'libSupportMultidex'        : 'com.android.support:multidex:1.0.3',
+                 'libSupportAnnotations'     : "com.android.support:support-annotations:${supportVersion}",
+                 'libSupportV4'              : "com.android.support:support-v4:${supportVersion}",
+                 'libSupportDesign'          : "com.android.support:design:${supportVersion}",
+                 'libSupportRecyclerview'    : "com.android.support:recyclerview-v7:${supportVersion}",
+                 'libSupportCardview'        : "com.android.support:cardview-v7:${supportVersion}",
+                 'libSupportConstraintLayout': "com.android.support.constraint:constraint-layout:1.1.2",
+                 /*其余的依赖库*/
+                 'libCircleImageView'        : 'de.hdodenhof:circleimageview:2.1.0',
+                 /*ButterKnife*/
+                 'libButterKnife'            : "com.jakewharton:butterknife:8.8.1",
+                 'libButterKnifeCompile'     : "com.jakewharton:butterknife-compiler:8.8.1",
+                 //ARouter
+                 'libArouteApi'              : "com.alibaba:arouter-api:1.3.1",
+                 'libArouteProcessor'        : "com.alibaba:arouter-compiler:1.1.4",
+
+                 /**/
+                 'libSystembarTint'          : 'com.readystatesoftware.systembartint:systembartint:1.0.3',
+                 'libOkhttp'                 : 'com.squareup.okhttp3:okhttp:3.3.0',
+                 /*Banner地址 - https://github.com/Bigkoo/Android-ConvenientBanner*/
+                 'libBanner'                 : 'com.bigkoo:ConvenientBanner:2.1.4',
+                 'Logger'                    : 'com.github.tianzhijiexian:logger:1.2.1',
+                 /*Github地址 - https://github.com/Bakumon/StatusLayoutManager*/
+                 'StatusLayout'              : 'com.github.Bakumon:StatusLayoutManager:1.0.4',
+                 'SmartRefreshLayout'        : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1',
+                 'QMUI'                      : 'com.qmuiteam:qmui:1.1.6',
+                 'FastJson'                  : 'com.alibaba:fastjson:1.1.70.android',
+                 /*  'Glide'                     : 'jp.wasabeef:glide-transformations:3.3.0',*/
+                 'Glide'                     : 'jp.wasabeef:glide-transformations:2.0.2',
+                 'BaseAdapter'               : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40',
+                 'EventBus'                  : 'org.greenrobot:eventbus:3.1.1',
+                 'TabLayout'                 : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
+                 'TaskScheduler'             : 'com.github.SilenceDut:TaskScheduler:1.0.1',
+                 'Tiny'                      : 'com.zxy.android:tiny:0.1.0',
+                 /*https://github.com/RuffianZhong/RWidgetHelper*/
+                 'RWidgerHelper'             : 'com.ruffian.library:RWidgetHelper:1.0.0',
+                 'NotifyUtil'                : 'com.github.hss01248:NotifyUtil:1.0.1',
+  ]
+}

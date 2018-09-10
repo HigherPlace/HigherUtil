@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bryan.autolayout.widget.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140px"
+    android:background="@drawable/common_item_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_padding_width"
+        android:textColor="@color/second_color"
+        android:textSize="@dimen/main_text_size" />
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_padding_width"
+        android:layout_marginRight="@dimen/common_padding_width"
+        android:layout_weight="1"
+        android:gravity="right|center_vertical"
+        android:textColor="@color/main_color"
+        android:textSize="@dimen/main_text_size" />
+
+    <ImageView
+        android:id="@+id/iv_edit"
+        android:layout_width="144px"
+        android:layout_height="144px"
+        android:padding="45px"
+       />
+
+
+</com.bryan.autolayout.widget.AutoLinearLayout>

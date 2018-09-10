@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--验证码输入框属性-->
+    <declare-styleable name="core_area">
+        <attr name="underline_color" format="color" />
+        <attr name="underline_selected_color" format="color" />
+        <attr name="hint_color" format="color" />
+        <attr name="text_color" format="color" />
+        <attr name="hint_text" format="string" />
+        <attr name="codes" format="integer" />
+    </declare-styleable>
+
+    <!-- 圆角矩形 -->
+    <declare-styleable name="ShapedImageView">
+        <attr name="shape_mode" format="enum">
+            <enum name="round_rect" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+        <attr name="round_radius" format="dimension" />
+    </declare-styleable>
+
+
+    <!--VerificationCodeInput的自定义属性-->
+    <declare-styleable name="vericationCodeInput">
+
+        <attr name="box" format="integer" />
+        <attr name="child_h_padding" format="dimension"/>
+        <attr name="child_v_padding" format="dimension"/>
+        <attr name="child_width" format="dimension"/>
+        <attr name="child_height" format="dimension"/>
+        <attr name="padding" format="dimension"/>
+        <attr name="box_bg_focus" format="reference"/>
+        <attr name="box_bg_normal" format="reference"/>
+        <attr name="inputType" format="string"/>
+    </declare-styleable>
+
+
+</resources>

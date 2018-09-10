@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!--背景选择器-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:color="?android:colorControlHighlight">
+
+    <!--背景色：白色背景色
+        灰色描边
+        没有圆角
+    -->
+    <item>
+        <shape>
+            <solid android:color="@color/white" />
+            <stroke android:width="3px" android:color="@color/bg_divider" />
+        </shape>
+    </item>
+
+
+</selector>

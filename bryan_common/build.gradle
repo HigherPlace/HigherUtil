@@ -1,0 +1,74 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            //是否压缩对其
+            zipAlignEnabled false
+        }
+        release {
+            //混淆
+            minifyEnabled false
+            //是否压缩对其
+            zipAlignEnabled true
+            //清除不用的资源
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //二维码
+    compile files('libs/android-core-3.1.1-SNAPSHOT.jar')
+    compile files('libs/core-3.1.1-SNAPSHOT.jar')
+    /*存放跟界面无关的东西*/
+    compile rootProject.ext.dependence.Logger
+    compile rootProject.ext.dependence.FastJson
+    compile rootProject.ext.dependence.Glide
+    compile rootProject.ext.dependence.EventBus
+
+
+    //异步任务工具
+    compile rootProject.ext.dependence.TaskScheduler
+    //图片压缩工具
+    compile rootProject.ext.dependence.Tiny
+    //日期时间选择器Start
+    compile('com.philliphsu:bottomsheetpickers:2.4.1') {
+        /*排除依赖中的引用，使用本地的版本*/
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'gridlayout-v7'
+    }
+    compile rootProject.ext.dependence.libSupportGridLayout
+    compile rootProject.ext.dependence.libSupportDesign
+    compile rootProject.ext.dependence.libSupportV7
+    //日期时间选择器End
+    compile rootProject.ext.dependence.libSupportRecyclerview
+    compile rootProject.ext.dependence.libSupportV4
+    compile rootProject.ext.dependence.libSupportRecyclerview
+    compile rootProject.ext.dependence.libSupportCardview
+
+    compile rootProject.ext.dependence.buglySdk
+    compile rootProject.ext.dependence.buglyNdk
+
+}

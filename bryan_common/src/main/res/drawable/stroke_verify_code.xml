@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!--背景选择器-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--背景色：activity的背景色
+        主题色描边
+    -->
+    <item>
+        <shape>
+            <solid android:color="#e6e6e6" />
+            <stroke android:width="3px" android:color="#2aa7f7" />
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+
+
+</selector>

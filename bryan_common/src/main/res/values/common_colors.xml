@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_color_w">@color/bg_activity</color>
+    <color name="colorPrimary">@color/theme_color</color>
+    <color name="colorPrimaryDark">@color/theme_color</color>
+    <color name="colorAccent">@color/theme_color</color>
+
+    <color name="bg_divider">#d9d9d9</color>
+    <color name="bg_press">#bdbdbd</color>
+    <color name="bg_activity">#eff0f2</color>
+    <color name="bg_activity_light">#F3EFF0F2</color>
+    <color name="bg_gray">#e4e5e5</color>
+    <color name="bg_gray_stroke">#d5d5d5</color>
+
+    <color name="bg_solid_public">#ebf0f6</color>
+
+    <color name="bg_padding">#eeeeee</color>
+
+    <color name="theme_color_light">#2aa7f7</color>
+    <color name="theme_color">#2aa7f7</color>
+    <color name="theme_color_press">#1d92de</color>
+
+    <color name="main_color">#000000</color>
+    <color name="second_color">#3d4955</color>
+    <color name="third_color">#7a8b9b</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+
+    <!--验证码输入框START-->
+    <color name="underline_default_color">#222222</color>
+    <color name="underline_selected_color">#222222</color>
+    <color name="hintColor">#222222</color>
+    <color name="textColor">#222222</color>
+    <!--验证码输入框end-->
+
+
+    <!--验证码边框Start-->
+    <color name="checkcode_bg">#ebeced</color>
+    <color name="checkcode_line">#000000</color>
+    <!--验证码边框End-->
+
+
+    <!--NodeView的颜色Start-->
+    <color name="node_gray_color">#7a8b9b</color>
+    <color name="node_divide_color">#e6e6e6</color>
+    <color name="node_theme_color">#2aa7f7</color>
+    <!--NodeView的颜色End-->
+
+    <!--扫描-->
+    <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#00000000</color>
+    <color name="capture_text_cover_bg">#99535353</color>
+    <color name="seek_bar_text">#fff6f6f6</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <!--扫描-->
+
+</resources>

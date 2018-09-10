@@ -1,0 +1,95 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            //是否压缩对其
+            zipAlignEnabled false
+        }
+        release {
+            //混淆
+            minifyEnabled false
+            //是否压缩对其
+            zipAlignEnabled true
+            //清除不用的资源
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "api"
+
+    productFlavors {
+//        //开发环境
+//        develop {
+////            buildConfigField "String", "BASE_URL", '"http://192.168.31.181:8888"'
+//            buildConfigField "String", "BASE_URL", '"http://139.224.229.158/ctx"'
+//            buildConfigField("boolean", "IsDebug", "true")
+//        }
+//        //如果有测试环境（生产环境的clone）,但是还是可以进行调试等操作
+//        check {
+//            buildConfigField "String", "BASE_URL", '"http://139.224.229.158/ctx"'
+//            buildConfigField("boolean", "IsDebug", "true")
+//        }
+        //生产环境版本
+        product {
+//            buildConfigField "String", "BASE_URL", rootProject.Base_Url.Base_Url_Release
+//            buildConfigField("boolean", "IsDebug", rootProject.Other.IsDebug)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.java.javaVersion
+        targetCompatibility rootProject.ext.java.javaVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':bryan_common')
+    compile project(':bryan_mvpframework')
+    //MultiDex
+    compile rootProject.ext.dependence.libSupportMultidex
+    //ARoute
+    compile rootProject.ext.dependence.libArouteApi
+    annotationProcessor rootProject.ext.dependence.libArouteProcessor
+    //ButterKnife
+    compile rootProject.ext.dependence.libButterKnife
+    annotationProcessor rootProject.ext.dependence.libButterKnifeCompile
+    //ossStart
+    implementation files('libs/aliyun-oss-sdk-android-2.3.0.jar')
+    implementation files('libs/okio-1.10.0.jar')
+    //ossEnd
+    //NetManager用到
+    compile 'org.xutils:xutils:3.5.0'
+
+    //bugly
+  /*  compile rootProject.ext.dependence.buglySdk
+    compile rootProject.ext.dependence.buglyNdk*/
+
+    compile rootProject.ext.dependence.StatusLayout
+    //smartRefreshLayout，跟support:design一起，不然无法预览
+    compile rootProject.ext.dependence.SmartRefreshLayout
+    compile rootProject.ext.dependence.QMUI
+    //省去编写各种Selector
+    compile rootProject.ext.dependence.RWidgerHelper
+    //各种TabLayout
+    compile rootProject.ext.dependence.TabLayout
+    compile rootProject.ext.dependence.BaseAdapter
+}

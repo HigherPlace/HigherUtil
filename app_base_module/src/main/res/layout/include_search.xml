@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_search"
+    android:layout_width="match_parent"
+    android:layout_height="144px"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30px"
+        android:layout_marginLeft="35px"
+        android:layout_marginRight="35px"
+        android:layout_marginTop="30px"
+        android:background="@drawable/select_bg_search">
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="搜索"
+            android:textColor="@color/second_color"
+            android:textSize="@dimen/main_text_size" />
+
+        <ImageView
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:layout_toLeftOf="@+id/tv_search"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_search_gray"
+            app:layout_auto_baseheight="width" />
+
+    </RelativeLayout>
+</LinearLayout>
+

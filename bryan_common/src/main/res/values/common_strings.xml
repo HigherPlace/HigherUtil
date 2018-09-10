@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">common_module</string>
+
+    <string name="create">生成</string>
+    <string name="scan_failed">扫描失败</string>
+    <string name="bottom_hint">建议与镜头保持10CM距离，尽量避免逆光和阴影</string>
+    <string name="top_hint">将条形码/二维码放入框内，即可会自动扫描</string>
+    <string name="msg_camera_framework_bug">抱歉，Android相机出现问题。您可能需要重启设备。</string>
+    <string name="button_ok">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="re_login">登陆失效，请重新登录</string>
+    <string name="file_path_empty">没有找到该文件的路径</string>
+
+    <string name="common_send_verify">发送验证码</string>
+    <string name="common_verify_send_finish">短信已成功发送，请注意查收</string>
+    <string name="common_bind">绑定</string>
+</resources>

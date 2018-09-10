@@ -1,0 +1,31 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/base_color_w</item>
+        <!-- 设置activity切换动画 -->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    </style>
+
+    <!--左右push动画主题-->
+    <style name="LibraryThemePush" parent="@style/AppTheme">
+        <item name="android:windowAnimationStyle">@style/PushAnimation</item>
+    </style>
+
+    <!--从底部压入动画主题-->
+    <style name="LibraryThemePresentation" parent="@style/AppTheme">
+        <item name="android:windowAnimationStyle">@style/PresentationAnimation</item>
+    </style>
+
+    <!--渐变动画主题-->
+    <style name="LibraryThemeAlpha" parent="@style/AppTheme">
+        <item name="android:windowAnimationStyle">@style/AlphaAnimation</item>
+    </style>
+
+</resources>

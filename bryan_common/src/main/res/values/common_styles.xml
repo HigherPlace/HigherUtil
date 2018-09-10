@@ -1,0 +1,82 @@
+<resources>
+
+    <!-- Activity 全局的animation 样式 -->
+    <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <!--Activity 动画样式-->
+    <!--左右推入-->
+    <style name="PushAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_push_open_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_push_open_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_push_close_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_push_close_out</item>
+    </style>
+    <!--底部向上-->
+    <style name="PresentationAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_presentation_open_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_presentation_close_out</item>
+    </style>
+    <!--渐变-->
+    <style name="AlphaAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_alpha_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_alpha_out</item>
+    </style>
+
+
+    <!--todo 这里本来有不少东西需要依赖于系统颜色，系统主题，我这里改成了直接写，是否考虑直接挪到App的Base类，或者写成sp-->
+    <!--验证码-->
+    <style name="CheckCodeEditTextStyle">
+        <item name="android:background">@drawable/stroke_verify_code</item>
+        <item name="android:layout_width">37dp</item>
+        <item name="android:layout_height">37dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:textColor">@color/theme_color</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--预设字体颜色，具体使用可以根据具体的使用设置-->
+    <style name="ClearWriteEditTextStyle">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textColorHint">#666666</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+
+
+    <!--MapUtil引入-->
+    <!--<style name="dialog_style" parent="@android:style/Animation.Activity">-->
+    <!--<item name="@android:windowEnterAnimation">@anim/</item>-->
+    <!--<item name="@android:windowExitAnimation">@anim/dialog_exit</item>-->
+    <!--</style>-->
+    <style name="dialog_style" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/activity_presentation_open_in</item>
+        <item name="android:windowExitAnimation">@anim/activity_presentation_close_out</item>
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
