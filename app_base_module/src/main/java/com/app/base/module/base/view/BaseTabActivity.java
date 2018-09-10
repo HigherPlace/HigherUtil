@@ -8,12 +8,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.app.base.R;
+import com.app.base.R2;
 import com.app.base.module.base.presenter.EmptyPresenter;
 import com.bryan.common.widget.ClearViewPager;
 import com.bryan.common.widget.titleview.TitleView;
-import com.huichexing.base.R;
-import com.huichexing.base.R2;
-import com.huichexing.base.module.base.presenter.EmptyPresenter;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.List;

@@ -10,7 +10,10 @@ import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
 
 import com.app.base.BaseApplication;
+import com.app.base.R;
 import com.app.base.constant.Constant;
+import com.app.base.entity.AccountBean;
+import com.app.base.utils.user.UserUtil;
 import com.bryan.common.utils.AppKeyBoardMgr;
 import com.bryan.common.utils.AppManager;
 import com.bryan.common.utils.BroadcastManager;
@@ -21,11 +24,6 @@ import com.bryan.common.utils.log.LogUtils;
 import com.bryan.mvp.base.presenter.MvpPresenter;
 import com.bryan.mvp.base.view.MvpView;
 import com.bryan.mvp.support.view.MvpActivity;
-import com.huichexing.base.BaseApplication;
-import com.huichexing.base.R;
-import com.huichexing.base.constant.Constant;
-import com.huichexing.base.entity.AccountBean;
-import com.huichexing.base.utils.user.UserUtil;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import org.xutils.common.Callback;

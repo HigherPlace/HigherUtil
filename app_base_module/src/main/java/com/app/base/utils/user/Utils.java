@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.app.base.BaseApplication;
-import com.huichexing.base.BaseApplication;
 
 import java.io.File;
 import java.io.FileInputStream;

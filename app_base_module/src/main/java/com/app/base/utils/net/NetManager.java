@@ -8,14 +8,12 @@ import android.text.TextUtils;
 
 import com.app.base.utils.net.bean.RequestBean;
 import com.app.base.utils.net.bean.ResponseBean;
+import com.app.base.utils.net.callback.DownloadCallback;
+import com.app.base.utils.net.callback.RequestCallBack2;
+import com.app.base.utils.net.constant.ResponseStatus;
+import com.app.base.utils.net.constant.Status;
 import com.bryan.common.utils.ToastMgr;
 import com.bryan.common.utils.log.LogUtils;
-import com.huichexing.base.utils.net.bean.RequestBean;
-import com.huichexing.base.utils.net.bean.ResponseBean;
-import com.huichexing.base.utils.net.callback.DownloadCallback;
-import com.huichexing.base.utils.net.callback.RequestCallBack2;
-import com.huichexing.base.utils.net.constant.ResponseStatus;
-import com.huichexing.base.utils.net.constant.Status;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -3,8 +3,8 @@ package com.app.base.utils.net.bean;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.huichexing.base.utils.net.NetManager;
-import com.huichexing.base.utils.net.Parser;
+import com.app.base.utils.net.NetManager;
+import com.app.base.utils.net.Parser;
 
 import org.xutils.common.Callback;
 

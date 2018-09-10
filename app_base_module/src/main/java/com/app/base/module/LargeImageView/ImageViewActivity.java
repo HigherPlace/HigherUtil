@@ -6,13 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.app.base.R;
+import com.app.base.R2;
+import com.app.base.module.base.presenter.EmptyPresenter;
 import com.app.base.module.base.view.BaseActivity;
 import com.app.base.module.base.view.EmptyView;
-import com.huichexing.base.R;
-import com.huichexing.base.R2;
-import com.huichexing.base.module.base.presenter.EmptyPresenter;
-import com.huichexing.base.module.base.view.BaseActivity;
-import com.huichexing.base.module.base.view.EmptyView;
 
 import java.util.List;
 

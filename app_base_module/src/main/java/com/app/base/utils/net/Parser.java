@@ -3,8 +3,6 @@ package com.app.base.utils.net;
 
 import com.app.base.utils.net.bean.RequestBean;
 import com.app.base.utils.net.bean.ResponseBean;
-import com.huichexing.base.utils.net.bean.RequestBean;
-import com.huichexing.base.utils.net.bean.ResponseBean;
 
 /**
  * Created by zwj on 2016/12/9.

@@ -1,7 +1,7 @@
 package com.app.base.module.base.view;
 
+import com.app.base.module.base.model.BaseTabViewState;
 import com.bryan.mvp.base.view.MvpView;
-import com.huichexing.base.module.base.model.BaseTabViewState;
 
 /**
  * Created by bryan on 2018/2/25 0025.

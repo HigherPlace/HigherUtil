@@ -13,6 +13,12 @@ android {
         multiDexEnabled rootProject.ext.android.multiDexEnabled
         manifestPlaceholders = rootProject.ext.android.manifestPlaceholders
     }
+
+    lintOptions {
+        abortOnError false // 即使有报错也不会停止打包
+        checkReleaseBuilds false // 打包Release版本的时候也不进行Lint检测
+    }
+
     buildTypes {
         release {
             minifyEnabled false

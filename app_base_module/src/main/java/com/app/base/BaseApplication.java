@@ -11,15 +11,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.app.base.entity.AccountBean;
 import com.app.base.utils.CrashHandler;
 import com.app.base.utils.net.bean.RequestBean;
+import com.app.base.utils.net.constant.Constant;
+import com.app.base.utils.user.UserUtil;
 import com.bryan.common.utils.SystemUtil;
 import com.bryan.common.utils.ToastMgr;
-import com.huichexing.base.entity.AccountBean;
-import com.huichexing.base.utils.CrashHandler;
-import com.huichexing.base.utils.net.bean.RequestBean;
-import com.huichexing.base.utils.net.constant.Constant;
-import com.huichexing.base.utils.user.UserUtil;
 import com.orhanobut.logger.LogBuilder;
 import com.orhanobut.logger.Logger;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -158,7 +156,7 @@ public class BaseApplication extends MultiDexApplication {
             RequestBean.addGlobalHead(Constant.TOKEN, getToken());
         }
         // 添加设备类型
-        RequestBean.addGlobalHead("deviceTag", com.huichexing.base.constant.Constant.DeviceTag);
+//        RequestBean.addGlobalHead("deviceTag", Constant.DeviceTag);
         RequestBean.addGlobalHead("versionCode", SystemUtil.getPackageInfo(BaseApplication.getGlobalContext()).versionCode + "");
 //        RequestBean.addGlobalHead("appId", com.ctx.base.constant.Constant.AppId);
     }

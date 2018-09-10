@@ -4,8 +4,6 @@ package com.app.base.utils.net.callback;
 import com.app.base.utils.net.NetManager;
 import com.app.base.utils.net.bean.ResponseBean;
 import com.bryan.common.utils.log.LogUtils;
-import com.huichexing.base.utils.net.NetManager;
-import com.huichexing.base.utils.net.bean.ResponseBean;
 
 /**
  * Created by Administrator on 2016/5/26.

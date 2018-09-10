@@ -2,7 +2,6 @@ package com.app.base.utils.user;
 
 
 import com.app.base.entity.AccountBean;
-import com.huichexing.base.entity.AccountBean;
 
 import java.io.File;
 import java.io.IOException;

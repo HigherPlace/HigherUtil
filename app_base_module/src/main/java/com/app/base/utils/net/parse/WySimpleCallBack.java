@@ -6,9 +6,6 @@ import com.app.base.constant.Constant;
 import com.app.base.utils.net.callback.SimpleCallBack;
 import com.bryan.common.utils.BroadcastManager;
 import com.bryan.common.utils.ToastMgr;
-import com.huichexing.base.BaseApplication;
-import com.huichexing.base.constant.Constant;
-import com.huichexing.base.utils.net.callback.SimpleCallBack;
 
 /**
  * Created by Administrator on 2017/3/21 0021.

@@ -16,8 +16,6 @@ import com.bryan.common.utils.ToastMgr;
 import com.bryan.mvp.base.presenter.MvpBasePresenter;
 import com.bryan.mvp.base.view.MvpView;
 import com.bryan.mvp.support.view.MvpFragment;
-import com.huichexing.base.BaseApplication;
-import com.huichexing.base.constant.Constant;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import org.xutils.common.Callback;

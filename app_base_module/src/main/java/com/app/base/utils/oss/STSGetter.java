@@ -5,7 +5,6 @@ import android.util.Log;
 import com.alibaba.sdk.android.oss.common.auth.OSSFederationCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSFederationToken;
 import com.app.base.BaseApplication;
-import com.huichexing.base.BaseApplication;
 import com.orhanobut.logger.Logger;
 
 import org.json.JSONException;

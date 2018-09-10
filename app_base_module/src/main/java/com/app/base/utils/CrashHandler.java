@@ -9,8 +9,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.app.base.BaseApplication;
 import com.bryan.common.utils.log.LogUtils;
-import com.huichexing.base.BaseApplication;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.app.base.R;
+import com.app.base.entity.ImageEntity;
 import com.bryan.common.utils.image.ImageBuilder;
-import com.huichexing.base.R;
-import com.huichexing.base.entity.ImageEntity;
 
 import java.util.List;
 

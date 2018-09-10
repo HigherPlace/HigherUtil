@@ -34,6 +34,11 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false // 即使有报错也不会停止打包
+        checkReleaseBuilds false // 打包Release版本的时候也不进行Lint检测
+    }
+
     compileOptions {
         sourceCompatibility rootProject.ext.java.javaVersion
         targetCompatibility rootProject.ext.java.javaVersion

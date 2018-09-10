@@ -14,8 +14,6 @@ import com.app.base.BaseApplication;
 import com.app.base.constant.Constant;
 import com.bryan.common.utils.BroadcastManager;
 import com.bryan.common.utils.ToastMgr;
-import com.huichexing.base.BaseApplication;
-import com.huichexing.base.constant.Constant;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import org.xutils.common.Callback;

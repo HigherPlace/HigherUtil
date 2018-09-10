@@ -5,10 +5,10 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
+import com.app.base.R;
+import com.app.base.R2;
+import com.app.base.module.base.view.BaseFragment;
 import com.bryan.common.utils.image.ImageBuilder;
-import com.huichexing.base.R;
-import com.huichexing.base.R2;
-import com.huichexing.base.module.base.view.BaseFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;

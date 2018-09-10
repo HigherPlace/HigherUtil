@@ -2,10 +2,9 @@ package com.app.base.module.base.presenter;
 
 import android.content.Context;
 
+import com.app.base.module.base.model.BaseTabViewState;
+import com.app.base.module.base.model.IBaseTabInteractor;
 import com.app.base.module.base.view.BaseTabView;
-import com.huichexing.base.module.base.model.BaseTabViewState;
-import com.huichexing.base.module.base.model.IBaseTabInteractor;
-import com.huichexing.base.module.base.view.BaseTabView;
 
 import java.util.List;
 

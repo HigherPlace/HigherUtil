@@ -12,9 +12,9 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
+import com.app.base.BaseApplication;
+import com.app.base.R;
 import com.bryan.common.utils.FileUtils;
-import com.huichexing.base.BaseApplication;
-import com.huichexing.base.R;
 
 import java.io.File;
 

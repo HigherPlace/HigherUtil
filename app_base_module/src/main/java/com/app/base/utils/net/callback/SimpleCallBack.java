@@ -2,7 +2,6 @@ package com.app.base.utils.net.callback;
 
 
 import com.app.base.utils.net.bean.ResponseBean;
-import com.huichexing.base.utils.net.bean.ResponseBean;
 
 /**
  * 简单的网络请求回调类

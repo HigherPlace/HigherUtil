@@ -4,7 +4,6 @@ import android.text.TextUtils;
 
 import com.app.base.utils.net.bean.ResponseBean;
 import com.bryan.common.utils.JsonUtil;
-import com.huichexing.base.utils.net.bean.ResponseBean;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+//apply plugin: 'com.novoda.bintray-release'
+apply plugin: "guru.stefma.bintrayrelease" //
+
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -14,6 +17,11 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+    }
+
+    lintOptions {
+        abortOnError false // 即使有报错也不会停止打包
+        checkReleaseBuilds false // 打包Release版本的时候也不进行Lint检测
     }
 
     buildTypes {
@@ -45,4 +53,14 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.github.HigherPlace:AutoLayout:v1.0.0'
+}
+
+
+version = "1.0.0"
+group = "com.higher.HigherUtil"
+publish {
+    userOrg = 'higherplace'
+    artifactId = 'bryan_mvpframework'
+    desc = 'Oh hi, this is a nice description for a project, right?'
+    website = 'https://github.com/stefma/bintray-release'
 }
