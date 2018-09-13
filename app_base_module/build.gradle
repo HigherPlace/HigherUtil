@@ -62,9 +62,10 @@ android {
         product {
 //            buildConfigField "String", "_ID", "\"$AppId\""
 //            buildConfigField "String", "_APPNAME", "\"$AppName\""
+//            buildConfigField("boolean", "IsDebug", IsDebug)
             buildConfigField "String", "_ID", "\"com.higher.util\""
             buildConfigField "String", "_APPNAME", "\"HigherUtil\""
-            buildConfigField("boolean", "IsDebug", IsDebug)
+            buildConfigField("boolean", "IsDebug", "true")
         }
     }
 
