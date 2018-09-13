@@ -74,8 +74,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':bryan_common')
-    compile project(':bryan_mvpframework')
+//    compile project(':bryan_common')
+//    compile project(':bryan_mvpframework')
+    implementation 'com.github.HigherPlace.HigherUtil:bryan_common:v0.1.1'
+    implementation 'com.github.HigherPlace.HigherUtil:bryan_mvpframework:v0.1.1'
+
     //MultiDex
     compile rootProject.ext.dependence.libSupportMultidex
     //ARoute

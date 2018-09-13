@@ -34,8 +34,7 @@ import com.bryan.common.widget.titleview.Drawable.SureDrawable;
 
 public class TitleView extends FrameLayout implements View.OnClickListener {
 
-    public static int mTitleColor = R.color.black;
-    public static int mDividerColor = R.color.white;
+    public static int mDividerColor = R.color.black;
 
     public class Unit {
         private static final int FIRST = 0X0001;       //0000 0000 0000 0001
@@ -85,8 +84,6 @@ public class TitleView extends FrameLayout implements View.OnClickListener {
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            setTranslationZ(2);
 //        }
-        setBackgroundColor(getResources().getColor(mTitleColor));
-
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setColor(getContext().getResources().getColor(mDividerColor));
@@ -210,6 +207,11 @@ public class TitleView extends FrameLayout implements View.OnClickListener {
 
     public void setBottomLineColor(int color) {
         mPaint.setColor(color);
+        invalidate();
+    }
+
+    public void setBgColor(int color) {
+        setBackgroundColor(color);
         invalidate();
     }
 
