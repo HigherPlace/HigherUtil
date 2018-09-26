@@ -1,4 +1,4 @@
-package com.jitengdianzi.bluetoothsys.utils.language;
+package com.bryan.common.utils.language;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.os.LocaleList;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.jitengdianzi.bluetoothsys.R;
+import com.bryan.common.R;
 
 import java.util.Locale;
 

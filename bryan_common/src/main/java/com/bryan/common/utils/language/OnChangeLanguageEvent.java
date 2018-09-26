@@ -1,4 +1,4 @@
-package com.jitengdianzi.bluetoothsys.utils.language;
+package com.bryan.common.utils.language;
 
 /**
  * Created by lx on 2017/5/2.
