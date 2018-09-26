@@ -60,9 +60,12 @@ android {
 //        }
         //生产环境版本
         product {
-            buildConfigField "String", "_ID", "\"$AppId\""
-            buildConfigField "String", "_APPNAME", "\"$AppName\""
-            buildConfigField("boolean", "IsDebug", IsDebug)
+//            buildConfigField "String", "_ID", "\"$AppId\""
+//            buildConfigField "String", "_APPNAME", "\"$AppName\""
+//            buildConfigField("boolean", "IsDebug", IsDebug)
+            buildConfigField "String", "_ID", "\"com.higher.util\""
+            buildConfigField "String", "_APPNAME", "\"HigherUtil\""
+            buildConfigField("boolean", "IsDebug", "true")
         }
     }
 
@@ -76,6 +79,9 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':bryan_common')
     compile project(':bryan_mvpframework')
+//    implementation 'com.github.HigherPlace.HigherUtil:bryan_common:v0.1.1'
+//    implementation 'com.github.HigherPlace.HigherUtil:bryan_mvpframework:v0.1.1'
+
     //MultiDex
     compile rootProject.ext.dependence.libSupportMultidex
     //ARoute

@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 20180914
+        versionName "1.1"
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -45,9 +45,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //二维码
-    compile files('libs/android-core-3.1.1-SNAPSHOT.jar')
-    compile files('libs/core-3.1.1-SNAPSHOT.jar')
+
     /*存放跟界面无关的东西*/
     compile rootProject.ext.dependence.Logger
     compile rootProject.ext.dependence.FastJson
@@ -74,7 +72,6 @@ dependencies {
     compile rootProject.ext.dependence.libSupportV4
     compile rootProject.ext.dependence.libSupportRecyclerview
     compile rootProject.ext.dependence.libSupportCardview
-
     compile rootProject.ext.dependence.buglySdk
     compile rootProject.ext.dependence.buglyNdk
 

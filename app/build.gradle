@@ -5,7 +5,8 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId AppId
+//        applicationId AppId       //不能这样写，jitpack编译通不过
+        applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -34,6 +35,18 @@ dependencies {
     annotationProcessor rootProject.ext.dependence.libButterKnifeCompile
     compile project(path: ':app_base_module')
     compile project(':UpdateLib')
+
+    //统一com.android.support 的版本号
+    configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '27.1.1'
+                }
+            }
+        }
+    }
 
 }
 

@@ -1,2 +1,2 @@
-include ':app', ':bryan_mvpframework', ':bryan_common', ':app_base_module', ':UpdateLib'
+include ':app', ':bryan_mvpframework', ':bryan_common', ':app_base_module', ':UpdateLib', ':qrcodelib'
 
