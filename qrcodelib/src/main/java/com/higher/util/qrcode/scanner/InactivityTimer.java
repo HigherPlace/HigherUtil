@@ -66,7 +66,8 @@ public final class InactivityTimer {
     public synchronized void onActivity() {
         cancel();
         inactivityTask = new InactivityAsyncTask();
-        Runnable.execAsync(this.inactivityTask);
+//        Runnable.execAsync(this.inactivityTask);
+        inactivityTask.execute();
     }
 
     public synchronized void onPause() {
