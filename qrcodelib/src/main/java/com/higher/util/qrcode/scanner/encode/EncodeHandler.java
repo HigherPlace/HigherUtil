@@ -2,7 +2,6 @@ package com.higher.util.qrcode.scanner.encode;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.widget.ImageView;
 
@@ -13,7 +12,6 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import com.higher.util.qrcode.R;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -42,12 +40,12 @@ public class EncodeHandler {
 //            aty.getWindowManager().getDefaultDisplay().getMetrics(dm);
 //            mScreenWidth = dm.widthPixels;
 
-            bitmap = createQRImage(uri, mScreenWidth,
-                    BitmapFactory.decodeResource(context.getResources(), R.drawable.icon_arrow));//自己写的方法
-
-            if (bitmap != null) {
-                imageView.setImageBitmap(bitmap);
-            }
+//            bitmap = createQRImage(uri, mScreenWidth,
+//                    BitmapFactory.decodeResource(context.getResources(), R.drawable.icon_arrow));//自己写的方法
+//
+//            if (bitmap != null) {
+//                imageView.setImageBitmap(bitmap);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
