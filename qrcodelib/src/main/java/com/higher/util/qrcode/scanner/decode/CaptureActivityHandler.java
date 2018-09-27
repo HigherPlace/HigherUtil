@@ -30,13 +30,13 @@ import android.os.Message;
 import android.provider.Browser;
 import android.util.Log;
 
-import com.bryan.common.R;
-import com.bryan.common.widget.scanner.CaptureActivity;
-import com.bryan.common.widget.scanner.camera.CameraManager;
-import com.bryan.common.widget.scanner.view.ViewfinderResultPointCallback;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
+import com.higher.util.qrcode.R;
+import com.higher.util.qrcode.scanner.CaptureActivity;
+import com.higher.util.qrcode.scanner.camera.CameraManager;
+import com.higher.util.qrcode.scanner.view.ViewfinderResultPointCallback;
 
 import java.util.Collection;
 import java.util.Map;

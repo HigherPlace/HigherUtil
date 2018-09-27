@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">QrCodeLib</string>
+    <string name="button_ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="create">生成</string>
+    <string name="scan_failed">扫描失败</string>
+    <string name="bottom_hint">建议与镜头保持10CM距离，尽量避免逆光和阴影</string>
+    <string name="top_hint">将条形码/二维码放入框内，即可会自动扫描</string>
+    <string name="msg_camera_framework_bug">抱歉，Android相机出现问题。您可能需要重启设备。</string>
+
 </resources>

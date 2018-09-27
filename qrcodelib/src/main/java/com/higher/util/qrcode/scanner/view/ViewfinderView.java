@@ -12,9 +12,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.bryan.common.R;
-import com.higher.util.qrcode.scanner.camera.CameraManager;
 import com.google.zxing.ResultPoint;
+import com.higher.util.qrcode.R;
+import com.higher.util.qrcode.scanner.camera.CameraManager;
 
 import java.util.ArrayList;
 import java.util.Collection;

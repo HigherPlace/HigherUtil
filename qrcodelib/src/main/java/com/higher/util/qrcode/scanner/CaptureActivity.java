@@ -21,17 +21,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.bryan.common.R;
-import com.bryan.common.utils.log.LogUtils;
-import com.bryan.common.widget.scanner.camera.CameraManager;
-import com.bryan.common.widget.scanner.common.BitmapUtils;
-import com.bryan.common.widget.scanner.decode.BitmapDecoder;
-import com.bryan.common.widget.scanner.decode.CaptureActivityHandler;
-import com.bryan.common.widget.scanner.view.ViewfinderView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 import com.google.zxing.client.result.ResultParser;
+import com.higher.util.qrcode.R;
+import com.higher.util.qrcode.scanner.camera.CameraManager;
+import com.higher.util.qrcode.scanner.common.BitmapUtils;
+import com.higher.util.qrcode.scanner.decode.BitmapDecoder;
+import com.higher.util.qrcode.scanner.decode.CaptureActivityHandler;
+import com.higher.util.qrcode.scanner.view.ViewfinderView;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -391,7 +390,7 @@ public final class CaptureActivity extends Activity implements
 
         beepManager.playBeepSoundAndVibrate();
         String result = ResultParser.parseResult(rawResult).toString();
-        LogUtils.i(TAG, result);
+        Log.i(TAG, result);
 //        Toast.makeText(CaptureActivity.this,result,Toast.LENGTH_SHORT).show();
         if (TextUtils.isEmpty(result)) {
             setResult(RESULT_CANCELED);
@@ -503,7 +502,6 @@ public final class CaptureActivity extends Activity implements
             Intent wrapperIntent = Intent.createChooser(innerIntent,
                     "选择二维码图片");
             this.startActivityForResult(wrapperIntent, REQUEST_CODE);
-
         } else if (i == R.id.capture_flashlight) {
             if (isFlashlightOpen) {
                 cameraManager.setTorch(false); // 关闭闪光灯

@@ -25,7 +25,6 @@ import android.os.AsyncTask;
 import android.os.BatteryManager;
 import android.util.Log;
 
-import com.bryan.common.widget.scanner.common.Runnable;
 
 /**
  * Finishes an activity after a period of inactivity if the device is on battery
@@ -67,7 +66,7 @@ public final class InactivityTimer {
     public synchronized void onActivity() {
         cancel();
         inactivityTask = new InactivityAsyncTask();
-        Runnable.execAsync(inactivityTask);
+        Runnable.execAsync(this.inactivityTask);
     }
 
     public synchronized void onPause() {

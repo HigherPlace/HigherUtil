@@ -19,8 +19,8 @@ package com.higher.util.qrcode.scanner.decode;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.bryan.common.widget.scanner.Intents;
 import com.google.zxing.BarcodeFormat;
+import com.higher.util.qrcode.scanner.Intents;
 
 import java.util.Arrays;
 import java.util.Collection;

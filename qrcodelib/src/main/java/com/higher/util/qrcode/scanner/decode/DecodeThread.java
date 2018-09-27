@@ -22,11 +22,11 @@ import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.bryan.common.widget.scanner.CaptureActivity;
-import com.bryan.common.widget.scanner.config.Config;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;
+import com.higher.util.qrcode.scanner.CaptureActivity;
+import com.higher.util.qrcode.scanner.config.Config;
 
 import java.util.Collection;
 import java.util.EnumMap;

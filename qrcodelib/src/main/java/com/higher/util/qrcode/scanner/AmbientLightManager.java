@@ -24,8 +24,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.preference.PreferenceManager;
 
-import com.bryan.common.widget.scanner.camera.CameraManager;
-import com.bryan.common.widget.scanner.camera.FrontLightMode;
+import com.higher.util.qrcode.scanner.camera.CameraManager;
+import com.higher.util.qrcode.scanner.camera.FrontLightMode;
 
 
 /**

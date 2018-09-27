@@ -23,8 +23,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
-import com.bryan.common.R;
-import com.bryan.common.widget.scanner.CaptureActivity;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -32,6 +30,8 @@ import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
+import com.higher.util.qrcode.R;
+import com.higher.util.qrcode.scanner.CaptureActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
