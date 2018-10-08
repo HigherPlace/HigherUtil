@@ -2,7 +2,7 @@
 
 ext {
 
-    android = [compileSdkVersion   : 27,
+    android = [compileSdkVersion   : 28,
                buildToolsVersion   : '28.0.2',
                applicationId       : "com.higher.util",
                minSdkVersion       : 21,
@@ -19,7 +19,7 @@ ext {
 
     java = ['javaVersion': JavaVersion.VERSION_1_8]
 
-    def supportVersion = '27.1.1'
+    def supportVersion = '28.0.0'
 
     dependence = [ /*统计一场类*/
                    'libUmengAnalytics'         : 'com.umeng.analytics:analytics:latest.integration',
