@@ -13,6 +13,12 @@
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
 
+    <style name="SplashTheme" parent="AppTheme">
+        <!--透明背景,这个可以设置给首页的背景-->
+        <!--<item name="android:windowFullscreen">true</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <!--左右push动画主题-->
     <style name="LibraryThemePush" parent="@style/AppTheme">
         <item name="android:windowAnimationStyle">@style/PushAnimation</item>

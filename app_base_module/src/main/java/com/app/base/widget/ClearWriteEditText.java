@@ -11,19 +11,16 @@ import android.view.animation.Animation;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 
+import com.app.base.R;
 import com.bryan.autolayout.utils.AutoUtils;
-import com.bryan.common.R;
+
 
 
 /**
  * Created by AMing on 15/11/2.
  * Company RongCloud
  */
-public class ClearWriteEditText extends android.support.v7.widget.AppCompatEditText implements View.OnFocusChangeListener , TextWatcher {
-
-
-
-
+public class ClearWriteEditText extends android.support.v7.widget.AppCompatEditText implements View.OnFocusChangeListener, TextWatcher {
     /**
      * 删除按钮的引用
      */
@@ -44,8 +41,8 @@ public class ClearWriteEditText extends android.support.v7.widget.AppCompatEditT
     }
 
     private void init() {
-        mClearDrawable = getResources().getDrawable(R.drawable.search_clear_pressed_write);
-        mClearDrawable.setBounds(0, 0, AutoUtils.getPercentHeightSize(62),AutoUtils.getPercentHeightSize(62));
+        mClearDrawable = getResources().getDrawable(R.drawable.ic_base_close_gray);
+        mClearDrawable.setBounds(0, 0, AutoUtils.getPercentHeightSize(62), AutoUtils.getPercentHeightSize(62));
         setClearIconVisible(false);
         this.setOnFocusChangeListener(this);
         this.addTextChangedListener(this);
@@ -62,12 +59,13 @@ public class ClearWriteEditText extends android.support.v7.widget.AppCompatEditT
 
     /**
      * 设置清除图标的显示与隐藏，调用setCompoundDrawables为EditText绘制上去
+     *
      * @param visible
      */
     protected void setClearIconVisible(boolean visible) {
         Drawable right = visible ? mClearDrawable : null;
         setCompoundDrawables(getCompoundDrawables()[0],
-                             getCompoundDrawables()[1], right, getCompoundDrawables()[3]);
+                getCompoundDrawables()[1], right, getCompoundDrawables()[3]);
     }
 
     /**
@@ -80,8 +78,8 @@ public class ClearWriteEditText extends android.support.v7.widget.AppCompatEditT
         if (getCompoundDrawables()[2] != null) {
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 boolean touchable = event.getX() > (getWidth()
-                                                    - getPaddingRight() - mClearDrawable.getIntrinsicWidth())
-                                    && (event.getX() < ((getWidth() - getPaddingRight())));
+                        - getPaddingRight() - mClearDrawable.getIntrinsicWidth())
+                        && (event.getX() < ((getWidth() - getPaddingRight())));
                 if (touchable) {
                     this.setText("");
                 }
@@ -121,9 +119,9 @@ public class ClearWriteEditText extends android.support.v7.widget.AppCompatEditT
     }
 
 
-
     /**
      * 晃动动画
+     *
      * @param counts 半秒钟晃动多少下
      * @return
      */

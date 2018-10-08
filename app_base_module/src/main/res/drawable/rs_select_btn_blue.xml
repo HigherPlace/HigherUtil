@@ -1,32 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:colorControlHighlight">
     <item android:state_pressed="true">
         <shape>
-            <gradient android:angle="270" android:endColor="@color/theme_color_press" android:startColor="@color/theme_color_press" />
+            <gradient
+                android:angle="270"
+                android:endColor="@color/theme_color_press"
+                android:startColor="@color/theme_color_press" />
             <corners android:radius="5dp" />
         </shape>
     </item>
 
     <item android:state_enabled="false">
         <shape>
-            <gradient android:angle="270" android:endColor="@color/theme_color" android:startColor="@color/theme_color" />
+            <gradient
+                android:angle="270"
+                android:endColor="@color/theme_color"
+                android:startColor="@color/theme_color" />
             <corners android:radius="5dp" />
         </shape>
     </item>
 
     <item android:state_enabled="true">
         <shape>
-            <gradient android:angle="270" android:endColor="@color/theme_color" android:startColor="@color/theme_color" />
+            <gradient
+                android:angle="270"
+                android:endColor="@color/theme_color"
+                android:startColor="@color/theme_color" />
             <corners android:radius="5dp" />
         </shape>
     </item>
 
     <item>
         <shape>
-            <gradient android:angle="270" android:endColor="@color/theme_color" android:startColor="@color/theme_color" />
+            <gradient
+                android:angle="270"
+                android:endColor="@color/theme_color"
+                android:startColor="@color/theme_color" />
             <corners android:radius="5dp" />
         </shape>
     </item>
-
-</selector>
+</ripple>
