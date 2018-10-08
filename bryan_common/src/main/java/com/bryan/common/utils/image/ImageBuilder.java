@@ -34,7 +34,7 @@ public class ImageBuilder {
     /**
      * 加载图片的模式
      */
-    public static enum LoadMode {
+    public enum LoadMode {
         /**
          * 网络加载
          */

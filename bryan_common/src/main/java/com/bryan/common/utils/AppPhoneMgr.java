@@ -156,12 +156,8 @@ public class AppPhoneMgr {
      * 判断sd卡是否挂载
      */
     public boolean isSDCardMount() {
-        if (Environment.getExternalStorageState().equals(
-            Environment.MEDIA_MOUNTED)) {
-            return true;
-        } else {
-            return false;
-        }
+        return Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED);
     }
 
     /**
@@ -250,8 +246,7 @@ public class AppPhoneMgr {
         return getAppPermissions(packageInfo);
     }
 
-    public String[] getAppPermissions(PackageInfo packageInfo)
-        throws NameNotFoundException {
+    public String[] getAppPermissions(PackageInfo packageInfo) {
         return packageInfo.requestedPermissions;
     }
 

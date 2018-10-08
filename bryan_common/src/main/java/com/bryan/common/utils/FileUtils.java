@@ -34,11 +34,8 @@ public class FileUtils {
      * @return true, 可用; false,不可用
      */
     public static boolean sdcardIsEnable() {
-        if (Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED)) {
-            return true;
-        }
-        return false;
+        return Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED);
     }
 
 

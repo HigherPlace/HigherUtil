@@ -145,8 +145,8 @@ public class TbWebViewActivity extends Activity {
 
 
     private void initTitleView() {
-        tvBack = ( TextView ) findViewById(R.id.tv_back);
-        tvTitle = ( TextView ) findViewById(R.id.tv_title_info);
+        tvBack = findViewById(R.id.tv_back);
+        tvTitle = findViewById(R.id.tv_title_info);
 
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,7 +213,7 @@ public class TbWebViewActivity extends Activity {
      */
     private void initWebView() {
         try {
-            mWebView = ( WebView ) findViewById(R.id.webview_entity);
+            mWebView = findViewById(R.id.webview_entity);
             // 启用js功能
             mWebView.getSettings().setJavaScriptEnabled(true);
             // 增加javascript接口的支持
@@ -276,8 +276,8 @@ public class TbWebViewActivity extends Activity {
                 public void onPageFinished(WebView view, String url) {
                     super.onPageFinished(view, url);
                     if ( TextUtils.isEmpty(mTitle) ) {
-                        tvTitle.setText(view.getTitle().toString());
-                        mTitle = view.getTitle().toString();
+                        tvTitle.setText(view.getTitle());
+                        mTitle = view.getTitle();
                     }
                 }
             });

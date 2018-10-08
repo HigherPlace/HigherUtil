@@ -624,7 +624,7 @@ public class AccountBean extends BaseEntity implements Serializable {
         private int status;
         private String Desc;
 
-        private Identify(int status, String desc) {
+        Identify(int status, String desc) {
             this.status = status;
             this.Desc = desc;
         }

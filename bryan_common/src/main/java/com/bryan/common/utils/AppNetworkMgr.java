@@ -224,10 +224,8 @@ public class AppNetworkMgr {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm != null) {
             NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-            if (networkInfo != null
-                    && networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-                return true;
-            }
+            return networkInfo != null
+                    && networkInfo.getType() == ConnectivityManager.TYPE_MOBILE;
         }
         return false;
     }
@@ -265,7 +263,6 @@ public class AppNetworkMgr {
                 (networkInfo = manager.getActiveNetworkInfo()) == null) {
             return type;
         }
-        ;
 
         if (networkInfo.isConnected()) {
             String typeName = networkInfo.getTypeName();
@@ -880,9 +877,7 @@ public class AppNetworkMgr {
     public static boolean isWifiOpen(Context context) throws Exception {
         int wifiState = getWifiState(context);
         return wifiState == WifiManager.WIFI_STATE_ENABLED ||
-                wifiState == WifiManager.WIFI_STATE_ENABLING
-                ? true
-                : false;
+                wifiState == WifiManager.WIFI_STATE_ENABLING;
     }
 
 
@@ -933,7 +928,7 @@ public class AppNetworkMgr {
                      enumIpAddr.hasMoreElements(); ) {
                     inetAddress = enumIpAddr.nextElement();
                     if (!inetAddress.isLoopbackAddress()) {
-                        return inetAddress.getHostAddress().toString();
+                        return inetAddress.getHostAddress();
                     }
                 }
             }

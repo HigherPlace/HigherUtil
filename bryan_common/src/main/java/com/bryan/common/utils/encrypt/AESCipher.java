@@ -40,7 +40,7 @@ public class AESCipher {
         return cipherOperation(contentBytes, keyBytes, Cipher.DECRYPT_MODE);
     }
 
-    private static byte[] cipherOperation(byte[] contentBytes, byte[] keyBytes, int mode) throws UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+    private static byte[] cipherOperation(byte[] contentBytes, byte[] keyBytes, int mode) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
         SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
 //        byte[] initParam = IV_STRING.getBytes(charset);
         IvParameterSpec ivParameterSpec = new IvParameterSpec(keyBytes);

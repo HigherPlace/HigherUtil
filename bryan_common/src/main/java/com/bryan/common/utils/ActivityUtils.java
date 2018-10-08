@@ -32,10 +32,7 @@ public class ActivityUtils {
             return true;
         } else if (setStatusBarLightModeWithFlyme(a, isFontColorDark)) {
             return true;
-        } else if (setStatusBarLightModeWithMIUI(a, isFontColorDark)) {
-            return true;
-        }
-        return false;
+        } else return setStatusBarLightModeWithMIUI(a, isFontColorDark);
     }
 
     /**

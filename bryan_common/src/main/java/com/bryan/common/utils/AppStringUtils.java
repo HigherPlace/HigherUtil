@@ -35,11 +35,7 @@ public class AppStringUtils {
 	 */
 	public static boolean isNotEmpty(String str) {
 		boolean bool = true;
-		if (str == null || "null".equals(str) || "".equals(str)) {
-			bool = false;
-		} else {
-			bool = true;
-		}
+        bool = str != null && !"null".equals(str) && !"".equals(str);
 		return bool;
 	}
 	/**
@@ -69,18 +65,14 @@ public class AppStringUtils {
 
 	public static boolean isChinese(char c) {
 		Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
-		if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
-				|| ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
-				|| ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
-				|| ub == Character.UnicodeBlock.GENERAL_PUNCTUATION
-				|| ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION
-				|| ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
+        return ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
+                || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
+                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
+                || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION
+                || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION
+                || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
 
-			return true;
-		}
-		return false;
-
-	}
+    }
 
     /**
      * 编译后的正则表达式缓存
@@ -538,11 +530,7 @@ public class AppStringUtils {
             }
         }
         float result = count / chLength;
-        if (result > 0.4) {
-            return true;
-        } else {
-            return false;
-        }
+        return result > 0.4;
     }
 
 }

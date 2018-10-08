@@ -173,21 +173,16 @@ public class AppFileMgr {
 	 */
 	public static boolean checkFileExists(String path, String timestamp){
 		if(timestamp == null){
-			if (new File(path).exists()) {
-				return true;
-			}
+            return new File(path).exists();
 		}else{
 			File file = new File(path);
 			Date fileTime = new Date(file.lastModified());
 			long fileTimestamp = fileTime.getTime();
 			long newTimestamp = Long.valueOf(timestamp)*1000;
 			long error = Long.valueOf(60000000);
-			if (new File(path).exists() && fileTimestamp - error>= newTimestamp) {
-				return true;
-			}
+            return new File(path).exists() && fileTimestamp - error >= newTimestamp;
 		}
-		return false;
-	}
+    }
 	
 	 /**
 	  * 获取Sdcard指定目录下缓存文件
@@ -501,8 +496,8 @@ public class AppFileMgr {
 	public static long getMobileEnableRAM(){
 		  StatFs stat = new StatFs(getDataPath());  
 		  long blockSize = stat.getBlockSize();  
-	      long availableBlocks = stat.getAvailableBlocks() - 4;;  
-	      return availableBlocks * blockSize;  
+	      long availableBlocks = stat.getAvailableBlocks() - 4;
+        return availableBlocks * blockSize;
 	}
 	
 	
@@ -593,11 +588,8 @@ public class AppFileMgr {
 	 * @param path
 	 */
 	public static boolean checkFileExists(String path) {
-		if (new File(path).exists()) {
-			return true;
-		}
-			return false;
-	}
+        return new File(path).exists();
+    }
 	
 
 	/**

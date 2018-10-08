@@ -23,8 +23,8 @@ public class NodeView {
     public NodeView(Context context, boolean isLast, String name, View.OnClickListener listener) {
         mContext = context;
         view = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.item_node, null);
-        tvNodeName = (TextView) view.findViewById(R.id.tv_node_name);
-        ivArrow = (ImageView) view.findViewById(R.id.iv_arrow);
+        tvNodeName = view.findViewById(R.id.tv_node_name);
+        ivArrow = view.findViewById(R.id.iv_arrow);
         setNodeName(name);
         isLast(isLast);
         view.setOnClickListener(listener);
@@ -33,8 +33,8 @@ public class NodeView {
     public NodeView(Context context, boolean isLast, String name) {
         mContext = context;
         view = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.item_node, null);
-        tvNodeName = (TextView) view.findViewById(R.id.tv_node_name);
-        ivArrow = (ImageView) view.findViewById(R.id.iv_arrow);
+        tvNodeName = view.findViewById(R.id.tv_node_name);
+        ivArrow = view.findViewById(R.id.iv_arrow);
         setNodeName(name);
         isLast(isLast);
     }

@@ -151,7 +151,7 @@ public class AppSysDateMgr {
 			return new SimpleDateFormat(dataFormat).parse(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getFormatDateByString", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getFormatDateByString", e.getMessage());
 			return null;
 		}
 	}
@@ -169,7 +169,7 @@ public class AppSysDateMgr {
 			return new SimpleDateFormat(chianDataFormat).format(new SimpleDateFormat(dataFormat).parse(date));
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getFormatDateByString", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getFormatDateByString", e.getMessage());
 			return null;
 		}
 	}
@@ -187,7 +187,7 @@ public class AppSysDateMgr {
 			return new SimpleDateFormat("yyyy年MM月dd日").format(new SimpleDateFormat("yyyy-MM-dd").parse(date));
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getFormatDateByString", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getFormatDateByString", e.getMessage());
 			return null;
 		}
 	}
@@ -203,7 +203,7 @@ public class AppSysDateMgr {
 			return new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒").format(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date));
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getFormatDateFullByString", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getFormatDateFullByString", e.getMessage());
 			return null;
 		}
 	}
@@ -289,7 +289,7 @@ public class AppSysDateMgr {
 	 * @return String 返回年
 	 */
     public static String getSysYear(Date date){
-       return new SimpleDateFormat("yyyy").format(date).toString();
+       return new SimpleDateFormat("yyyy").format(date);
     }
 
     /**
@@ -298,7 +298,7 @@ public class AppSysDateMgr {
 	 * @return String 返回年
 	 */
     public static String getSysYear(String date){
-        return new SimpleDateFormat("yyyy").format(date).toString();
+        return new SimpleDateFormat("yyyy").format(date);
      }
 
     /**
@@ -307,7 +307,7 @@ public class AppSysDateMgr {
      * @return String 返回月
      */
     public static String getSysMonth(Date date){
-        return new SimpleDateFormat("MM").format(date).toString();
+        return new SimpleDateFormat("MM").format(date);
     }
 
     /**
@@ -316,7 +316,7 @@ public class AppSysDateMgr {
      * @return String 返回月
      */
     public static String getSysMonth(String date){
-        return new SimpleDateFormat("MM").format(date).toString();
+        return new SimpleDateFormat("MM").format(date);
     }
 
     /**
@@ -325,7 +325,7 @@ public class AppSysDateMgr {
      * @return String 返回天
      */
     public static String getSysDay(Date date){
-        return new SimpleDateFormat("dd").format(date).toString();
+        return new SimpleDateFormat("dd").format(date);
     }
 
     /**
@@ -334,7 +334,7 @@ public class AppSysDateMgr {
      * @return String 返回天
      */
     public static String getSysDay(String date){
-        return new SimpleDateFormat("dd").format(date).toString();
+        return new SimpleDateFormat("dd").format(date);
     }
 
 	/**
@@ -387,7 +387,7 @@ public class AppSysDateMgr {
 	        }
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getSysIsToday", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getSysIsToday", e.getMessage());
 		}
         	return falg;
     }
@@ -407,7 +407,7 @@ public class AppSysDateMgr {
 			simpledateformat.parse(data);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getDateIsTrue", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getDateIsTrue", e.getMessage());
 			return false;
 		}
 			return true;
@@ -428,7 +428,7 @@ public class AppSysDateMgr {
 			return df.parse(strdate1).before(df.parse(strdate2));
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage());
 			return false;
 		}
 	}
@@ -444,7 +444,7 @@ public class AppSysDateMgr {
 			return df.parse(strdate1).equals(df.parse(strdate2));
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage());
 			return false;
 		}
 	}
@@ -461,10 +461,10 @@ public class AppSysDateMgr {
 			LogUtils.i("AppSysDateMgr-->>getDateIsBefore-->>strdate2: ", Longdate2 + "");
 			Longdate1 = (null == Longdate1) ? 0 : Longdate1;
 			Longdate2 = (null == Longdate2) ? 0 : Longdate2;
-			return  Longdate1 > Longdate2 ? true : false;
+			return Longdate1 > Longdate2;
 		} catch (Exception e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage());
 			return false;
 		}
 	}
@@ -524,7 +524,7 @@ public class AppSysDateMgr {
 			return df.parse(strdate1).before(df.parse(strdate2));
 		} catch (ParseException e) {
 			e.printStackTrace();
-			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage().toString());
+			LogUtils.e("AppSysDateMgr-->>getDateIsBefore", e.getMessage());
 			return false;
 		}
 	}

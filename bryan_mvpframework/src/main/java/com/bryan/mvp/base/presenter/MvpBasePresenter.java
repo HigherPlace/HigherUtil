@@ -38,10 +38,7 @@ public class MvpBasePresenter<V extends MvpView> implements MvpPresenter<V> {
      * @return
      */
     public boolean isAttachView() {
-        if (this.weakView != null && this.weakView.get() != null) {
-            return true;
-        }
-        return false;
+        return this.weakView != null && this.weakView.get() != null;
     }
 
     @SuppressWarnings("unchecked")

@@ -196,7 +196,7 @@ public final class CaptureActivity extends Activity implements
         // 会导致扫描窗口的尺寸计算有误的bug
         cameraManager = new CameraManager(getApplication());
 
-        viewfinderView = (ViewfinderView) findViewById(R.id.capture_viewfinder_view);
+        viewfinderView = findViewById(R.id.capture_viewfinder_view);
         viewfinderView.setCameraManager(cameraManager);
 
         handler = null;
@@ -205,7 +205,7 @@ public final class CaptureActivity extends Activity implements
         // 摄像头预览功能必须借助SurfaceView，因此也需要在一开始对其进行初始化
         // 如果需要了解SurfaceView的原理
         // 参考:http://blog.csdn.net/luoshengyang/article/details/8661317
-        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.capture_preview_view); // 预览
+        SurfaceView surfaceView = findViewById(R.id.capture_preview_view); // 预览
         SurfaceHolder surfaceHolder = surfaceView.getHolder();
         if (hasSurface) {
             // The activity was paused but not stopped, so the surface still
@@ -249,7 +249,7 @@ public final class CaptureActivity extends Activity implements
         // 关闭摄像头
         cameraManager.closeDriver();
         if (!hasSurface) {
-            SurfaceView surfaceView = (SurfaceView) findViewById(R.id.capture_preview_view);
+            SurfaceView surfaceView = findViewById(R.id.capture_preview_view);
             SurfaceHolder surfaceHolder = surfaceView.getHolder();
             surfaceHolder.removeCallback(this);
         }

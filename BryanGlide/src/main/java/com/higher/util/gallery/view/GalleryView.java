@@ -3,6 +3,7 @@ package com.higher.util.gallery.view;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -64,9 +65,8 @@ public class GalleryView extends RelativeLayout {
     private GalleryPhotoAdapter adapter;
     private final static int WHAT_SAVE_SUCCESS = 1;
     private final static int WHAT_SAVE_FAILED = 2;
-//    private RxPermissions rxPermissions;
 
-
+    @SuppressLint("HandlerLeak")
     private android.os.Handler handler = new android.os.Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -92,13 +92,13 @@ public class GalleryView extends RelativeLayout {
 
     public GalleryView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         if (attrs != null) {
             TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.GalleryView);
             animDuration = typedArray.getInt(R.styleable.GalleryView_animDuration, DEFAULT_ANIM_DURATION);
             saveText = typedArray.getString(R.styleable.GalleryView_saveText);
             saveTextSize = typedArray.getDimensionPixelSize(R.styleable.GalleryView_saveTextSize, 0);
             saveTextColor = typedArray.getColor(R.styleable.GalleryView_saveTextColor, 0);
+            typedArray.recycle();
         } else {
             animDuration = DEFAULT_ANIM_DURATION;
         }
@@ -231,10 +231,10 @@ public class GalleryView extends RelativeLayout {
     private void initView() {
         View view = View.inflate(getContext(), R.layout.gallery_view_main, this);
         maskView = view.findViewById(R.id.gallery_view_main_mask_View);
-        mScaleImageView = (ImageView) view.findViewById(R.id.gallery_view_main_scale_imageView);
-        viewPager = (ViewPager) view.findViewById(R.id.gallery_view_main_viewpager);
-        tvPhotoSize = (TextView) view.findViewById(R.id.gallery_view_main_photo_size_tv);
-        tvPhotoSave = (TextView) view.findViewById(R.id.gallery_view_main_photo_save);
+        mScaleImageView = view.findViewById(R.id.gallery_view_main_scale_imageView);
+        viewPager = view.findViewById(R.id.gallery_view_main_viewpager);
+        tvPhotoSize = view.findViewById(R.id.gallery_view_main_photo_size_tv);
+        tvPhotoSave = view.findViewById(R.id.gallery_view_main_photo_save);
 
         if (!TextUtils.isEmpty(saveText)) {
             tvPhotoSave.setText(saveText);

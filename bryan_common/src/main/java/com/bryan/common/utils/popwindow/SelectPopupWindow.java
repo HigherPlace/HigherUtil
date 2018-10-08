@@ -65,17 +65,17 @@ public class SelectPopupWindow extends PopupWindow implements View.OnClickListen
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mMenuView = inflater.inflate(R.layout.layout_popwindow_dialog_select_type, null);
         if ( showGaode ) {
-            btnGaode = ( Button ) mMenuView.findViewById(R.id.btn_select_gaode);
+            btnGaode = mMenuView.findViewById(R.id.btn_select_gaode);
             mMenuView.findViewById(R.id.ll_gaode).setVisibility(View.VISIBLE);
             btnGaode.setOnClickListener(this);
         }
         if ( showBaidu ) {
-            btnBaidu = ( Button ) mMenuView.findViewById(R.id.btn_select_baidu);
+            btnBaidu = mMenuView.findViewById(R.id.btn_select_baidu);
             mMenuView.findViewById(R.id.ll_baidu).setVisibility(View.VISIBLE);
             btnBaidu.setOnClickListener(this);
         }
 
-        btnCancel = ( Button ) mMenuView.findViewById(R.id.btn_select_pic_cancel);
+        btnCancel = mMenuView.findViewById(R.id.btn_select_pic_cancel);
         btnCancel.setOnClickListener(this);
     }
 

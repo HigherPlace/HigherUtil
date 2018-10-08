@@ -226,7 +226,7 @@ public class UpdateUtil {
         }
 
         BigInteger var5 = new BigInteger(1, digest.digest());
-        return String.format("%1$032x", new Object[]{var5});
+        return String.format("%1$032x", var5);
     }
 
 

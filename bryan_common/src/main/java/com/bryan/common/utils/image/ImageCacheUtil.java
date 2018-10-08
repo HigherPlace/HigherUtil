@@ -91,9 +91,8 @@ public class ImageCacheUtil {
      *
      * @param file file
      * @return size
-     * @throws Exception
      */
-    private long getFolderSize(File file) throws Exception {
+    private long getFolderSize(File file) {
         long size = 0;
         try {
             File[] fileList = file.listFiles();

@@ -9,9 +9,9 @@ import android.view.View;
  *
  */
 public interface ILceAnimator {
-	public void showLoading(View loadingView, View contentView, View errorView);
+	void showLoading(View loadingView, View contentView, View errorView);
 
-	public void showErrorView(View loadingView, View contentView, View errorView);
+	void showErrorView(View loadingView, View contentView, View errorView);
 
-	public void showContent(View loadingView, View contentView, View errorView);
+	void showContent(View loadingView, View contentView, View errorView);
 }

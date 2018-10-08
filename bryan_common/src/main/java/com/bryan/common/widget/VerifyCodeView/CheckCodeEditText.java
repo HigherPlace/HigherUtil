@@ -59,14 +59,14 @@ public class CheckCodeEditText extends LinearLayout {
 
     private void init() {
         inflate(getContext(), R.layout.check_code_layout, this);
-        this.checkCodeLinear = (LinearLayout) findViewById(R.id.checkcode_linear);
-        this.checkCodeEdit = (EditText) findViewById(R.id.checkcode_edit);
-        this.code1 = (TextView) findViewById(R.id.codeOne);
-        this.code2 = (TextView) findViewById(R.id.codeTow);
-        this.code3 = (TextView) findViewById(R.id.codeThree);
-        this.code4 = (TextView) findViewById(R.id.codeFour);
-        this.code5 = (TextView) findViewById(R.id.codeFive);
-        this.code6 = (TextView) findViewById(R.id.codeSix);
+        this.checkCodeLinear = findViewById(R.id.checkcode_linear);
+        this.checkCodeEdit = findViewById(R.id.checkcode_edit);
+        this.code1 = findViewById(R.id.codeOne);
+        this.code2 = findViewById(R.id.codeTow);
+        this.code3 = findViewById(R.id.codeThree);
+        this.code4 = findViewById(R.id.codeFour);
+        this.code5 = findViewById(R.id.codeFive);
+        this.code6 = findViewById(R.id.codeSix);
 
         this.codeViews.clear();
         this.codeViews.add(code1);
@@ -86,7 +86,7 @@ public class CheckCodeEditText extends LinearLayout {
             if (v.getId() == checkCodeLinear.getId()) {
                 checkCodeEdit.requestFocus();
                 Context context = v.getContext();
-                InputMethodManager imm = (InputMethodManager) context.getSystemService(context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
             }
         }

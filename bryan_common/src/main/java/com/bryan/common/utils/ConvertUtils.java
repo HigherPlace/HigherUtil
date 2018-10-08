@@ -95,7 +95,7 @@ public class ConvertUtils {
         if (b.length == 0) {
             return null;
         }
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < b.length; i++) {
             int value = b[i] & 0xFF;
             String hv = Integer.toHexString(value);

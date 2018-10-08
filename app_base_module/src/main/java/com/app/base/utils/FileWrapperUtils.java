@@ -105,10 +105,7 @@ public class FileWrapperUtils {
                 || !Environment.isExternalStorageRemovable()) {
             File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + BaseApplication.getGlobalContext().getString(R.string.app_name) + File.separator + "图片");
             if (!file.exists()) {
-                if (file.mkdirs())
-                    isSuccess = true;
-                else
-                    isSuccess = false;
+                isSuccess = file.mkdirs();
             } else {
                 isSuccess = true;
             }

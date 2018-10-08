@@ -51,7 +51,7 @@ public class CustomProgressDialog extends Dialog {
 		if (customProgressDialog == null) {
 			return;
 		}
-		ImageView imageView = (ImageView) customProgressDialog
+		ImageView imageView = customProgressDialog
 				.findViewById(R.id.loading_image);
 		AnimationDrawable animationDrawable = (AnimationDrawable) imageView
 				.getBackground();
@@ -79,7 +79,7 @@ public class CustomProgressDialog extends Dialog {
 	 * 
 	 */
 	public CustomProgressDialog setMessage(String strMessage) {
-		TextView tvMsg = (TextView) customProgressDialog
+		TextView tvMsg = customProgressDialog
 				.findViewById(R.id.loading_msg);
 
 		if (tvMsg != null) {

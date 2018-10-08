@@ -356,9 +356,7 @@ public class AppValidationMgr {
      */
     public static boolean isPoint(String paramString) {
         if (paramString.indexOf(".") > 0) {
-            if (paramString.substring(paramString.indexOf(".")).length() > 3) {
-                return false;
-            }
+            return paramString.substring(paramString.indexOf(".")).length() <= 3;
         }
         return true;
     }
@@ -984,11 +982,11 @@ public class AppValidationMgr {
             case 6:
             case 9:
             case 11:
-                return day > 30 ? false : true;
+                return day <= 30;
             case 2:
                 if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
-                    return day > 29 ? false : true;
-                return day > 28 ? false : true;
+                    return day <= 29;
+                return day <= 28;
             default:
                 return true;
         }

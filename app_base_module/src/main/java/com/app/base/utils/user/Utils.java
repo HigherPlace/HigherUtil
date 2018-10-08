@@ -185,10 +185,7 @@ public class Utils {
         if (Environment.MEDIA_MOUNTED.equals(state)) {
             File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + BuildConfig._APPNAME);
             if (!file.exists()) {
-                if (file.mkdir())
-                    imcc_dir_exist = true;
-                else
-                    imcc_dir_exist = false;
+                imcc_dir_exist = file.mkdir();
             } else {
                 imcc_dir_exist = true;
             }
