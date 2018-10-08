@@ -1,4 +1,13 @@
 ## 版本更新说明
+
+### v1.0.1
+
+    1-添加仿照微信查看大图的代码
+    使用开源库：
+    https://github.com/cedear/GalleryView
+    //介绍地址
+    https://juejin.im/post/5ab8b36251882548fe4a204d
+
 ### v1.0.0
 
     https://github.com/sunfusheng/GlideImageView
