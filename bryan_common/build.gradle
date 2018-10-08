@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.HigherPlace'
+group = 'com.github.HigherPlace'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -44,35 +44,34 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    api fileTree(include: ['*.jar'], dir: 'libs')
 
     /*存放跟界面无关的东西*/
-    compile rootProject.ext.dependence.Logger
-    compile rootProject.ext.dependence.FastJson
-    compile rootProject.ext.dependence.Glide
-    compile rootProject.ext.dependence.EventBus
-
+    api rootProject.ext.dependence.Logger
+    api rootProject.ext.dependence.FastJson
+    api rootProject.ext.dependence.Glide
+    api rootProject.ext.dependence.EventBus
 
     //异步任务工具
-    compile rootProject.ext.dependence.TaskScheduler
+    api rootProject.ext.dependence.TaskScheduler
     //图片压缩工具
-    compile rootProject.ext.dependence.Tiny
+    api rootProject.ext.dependence.Tiny
     //日期时间选择器Start
-    compile('com.philliphsu:bottomsheetpickers:2.4.1') {
+    api('com.philliphsu:bottomsheetpickers:2.4.1') {
         /*排除依赖中的引用，使用本地的版本*/
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'com.android.support', module: 'design'
         exclude group: 'com.android.support', module: 'gridlayout-v7'
     }
-    compile rootProject.ext.dependence.libSupportGridLayout
-    compile rootProject.ext.dependence.libSupportDesign
-    compile rootProject.ext.dependence.libSupportV7
+    api rootProject.ext.dependence.libSupportGridLayout
+    api rootProject.ext.dependence.libSupportDesign
+    api rootProject.ext.dependence.libSupportV7
     //日期时间选择器End
-    compile rootProject.ext.dependence.libSupportRecyclerview
-    compile rootProject.ext.dependence.libSupportV4
-    compile rootProject.ext.dependence.libSupportRecyclerview
-    compile rootProject.ext.dependence.libSupportCardview
-    compile rootProject.ext.dependence.buglySdk
-    compile rootProject.ext.dependence.buglyNdk
+    api rootProject.ext.dependence.libSupportRecyclerview
+    api rootProject.ext.dependence.libSupportV4
+    api rootProject.ext.dependence.libSupportRecyclerview
+    api rootProject.ext.dependence.libSupportCardview
+    api rootProject.ext.dependence.buglySdk
+    api rootProject.ext.dependence.buglyNdk
 
 }
