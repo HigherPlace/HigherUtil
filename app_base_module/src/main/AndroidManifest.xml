@@ -13,6 +13,11 @@
 
         <!-- ******************** 自动适配配置 end ******************** -->
 
+        <!--解决全面屏上下部分留黑或留白问题-->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.2" />
+
         <activity android:name=".module.LargeImageView.ImageViewActivity" />
 
 
