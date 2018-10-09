@@ -18,8 +18,12 @@
             android:name="android.max_aspect"
             android:value="2.2" />
 
-        <activity android:name=".module.LargeImageView.ImageViewActivity" />
-
+        <activity
+            android:name=".module.LargeImageView.ImageViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
 
     </application>
