@@ -101,7 +101,6 @@ public class MMKVUtil {
         MMKV.mmkvWithID(fileName).encode(key, value);
     }
 
-
     /**
      * 取出key对应的boolen值
      *
