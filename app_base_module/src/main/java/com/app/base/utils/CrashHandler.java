@@ -187,6 +187,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 fos.write(sb.toString().getBytes());
                 fos.close();
             }
+
             //上传到bugly
             LogUtils.catchError("Crash", sb.toString(), ex);
             return fileName;
