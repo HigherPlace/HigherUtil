@@ -73,5 +73,7 @@ dependencies {
     api rootProject.ext.dependence.libSupportCardview
     api rootProject.ext.dependence.buglySdk
     api rootProject.ext.dependence.buglyNdk
+    //引入MMKV
+    api rootProject.ext.dependence.MMKY
 
 }

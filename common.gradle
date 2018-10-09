@@ -65,5 +65,8 @@ ext {
                    /*https://github.com/RuffianZhong/RWidgetHelper*/
                    'RWidgerHelper'             : 'com.ruffian.library:RWidgetHelper:1.0.0',
                    'NotifyUtil'                : 'com.github.hss01248:NotifyUtil:1.0.1',
+                   /*mmkv*/
+                   'MMKY'                      : 'com.tencent:mmkv:1.0.10',
+
     ]
 }
