@@ -61,6 +61,11 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
     }
 
     @Override
+    protected boolean isNeedAutoLayout() {
+        return true;
+    }
+
+    @Override
     protected void onDestroy() {
         AppManager.getAppManager().removeActivity(this);
         super.onDestroy();

@@ -77,38 +77,38 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':bryan_common')
-    compile project(':bryan_mvpframework')
-    compile project(':qrcodelib')
+    api project(':bryan_common')
+    api project(':bryan_mvpframework')
+    api project(':qrcodelib')
 //    implementation 'com.github.HigherPlace.HigherUtil:bryan_common:v0.1.1'
 //    implementation 'com.github.HigherPlace.HigherUtil:bryan_mvpframework:v0.1.1'
 
     //MultiDex
-    compile rootProject.ext.dependence.libSupportMultidex
+    api rootProject.ext.dependence.libSupportMultidex
     //ARoute
-    compile rootProject.ext.dependence.libArouteApi
+    api rootProject.ext.dependence.libArouteApi
     annotationProcessor rootProject.ext.dependence.libArouteProcessor
     //ButterKnife
-    compile rootProject.ext.dependence.libButterKnife
+    api rootProject.ext.dependence.libButterKnife
     annotationProcessor rootProject.ext.dependence.libButterKnifeCompile
     //ossStart
     implementation files('libs/aliyun-oss-sdk-android-2.3.0.jar')
     implementation files('libs/okio-1.10.0.jar')
     //ossEnd
     //NetManager用到
-    compile 'org.xutils:xutils:3.5.0'
+    api 'org.xutils:xutils:3.5.0'
 
     //bugly
     /*  compile rootProject.ext.dependence.buglySdk
       compile rootProject.ext.dependence.buglyNdk*/
 
-    compile rootProject.ext.dependence.StatusLayout
+    api rootProject.ext.dependence.StatusLayout
     //smartRefreshLayout，跟support:design一起，不然无法预览
-    compile rootProject.ext.dependence.SmartRefreshLayout
-    compile rootProject.ext.dependence.QMUI
+    api rootProject.ext.dependence.SmartRefreshLayout
+    api rootProject.ext.dependence.QMUI
     //省去编写各种Selector
-    compile rootProject.ext.dependence.RWidgerHelper
+    api rootProject.ext.dependence.RWidgerHelper
     //各种TabLayout
-    compile rootProject.ext.dependence.TabLayout
-    compile rootProject.ext.dependence.BaseAdapter
+    api rootProject.ext.dependence.TabLayout
+    api rootProject.ext.dependence.BaseAdapter
 }
