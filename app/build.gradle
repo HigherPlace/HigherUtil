@@ -9,10 +9,10 @@ android {
         applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-//        versionCode rootProject.ext.android.versionCode
-//        versionName rootProject.ext.android.versionName
-        versionCode rootProject.VersionCode as int
-        versionName rootProject.VersionName
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+//        versionCode rootProject.VersionCode as int
+//        versionName rootProject.VersionName
         multiDexEnabled rootProject.ext.android.multiDexEnabled
         manifestPlaceholders = rootProject.ext.android.manifestPlaceholders
     }
