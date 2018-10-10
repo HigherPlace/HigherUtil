@@ -60,9 +60,9 @@ android {
 //        }
         //生产环境版本
         product {
-            buildConfigField "String", "_ID", "\"$AppId\""
-            buildConfigField "String", "_APPNAME", "\"$AppName\""
-            buildConfigField("boolean", "IsDebug", IsDebug)
+//            buildConfigField "String", "_ID", "\"$AppId\""
+//            buildConfigField "String", "_APPNAME", "\"$AppName\""
+//            buildConfigField("boolean", "IsDebug", IsDebug)
         }
     }
 
