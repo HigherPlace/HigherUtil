@@ -39,4 +39,5 @@ captures/
 *.jks</span>
 
 
-* .idea/
+*.idea/
+*.idea
