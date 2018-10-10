@@ -10,7 +10,6 @@ import android.content.Intent;
 import com.hss01248.notifyutil.builder.BigPicBuilder;
 import com.hss01248.notifyutil.builder.BigTextBuilder;
 import com.hss01248.notifyutil.builder.MailboxBuilder;
-import com.hss01248.notifyutil.builder.MediaBuilder;
 import com.hss01248.notifyutil.builder.ProgressBuilder;
 import com.hss01248.notifyutil.builder.SingleLineBuilder;
 
@@ -74,11 +73,11 @@ public class NotifyUtil {
         builder.setBase(smallIcon,contentTitle,"").setId(id);
         return builder;
     }
-    public static MediaBuilder buildMedia(int id,int smallIcon,CharSequence contentTitle,CharSequence contentText){
-        MediaBuilder builder = new MediaBuilder();
-        builder.setBase(smallIcon,contentTitle,contentText).setId(id);
-        return builder;
-    }
+//    public static MediaBuilder buildMedia(int id,int smallIcon,CharSequence contentTitle,CharSequence contentText){
+//        MediaBuilder builder = new MediaBuilder();
+//        builder.setBase(smallIcon,contentTitle,contentText).setId(id);
+//        return builder;
+//    }
     /*public static CustomViewBuilder buildCustomView(BigPicBuilder builder){
 
     }*/
