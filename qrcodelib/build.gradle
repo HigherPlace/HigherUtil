@@ -34,6 +34,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.dependence.libSupportV7
     //二维码
     api files('libs/android-core-3.1.1-SNAPSHOT.jar')
     api files('libs/core-3.1.1-SNAPSHOT.jar')
