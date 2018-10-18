@@ -6,7 +6,7 @@
     android:background="#000000"
     android:orientation="vertical">
 
-    <com.huichexing.base.module.LargeImageView.TouchImageView
+    <com.app.base.module.LargeImageView.TouchImageView
         android:id="@+id/iv_picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
