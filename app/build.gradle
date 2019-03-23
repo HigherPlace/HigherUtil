@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
 //        applicationId AppId
@@ -15,6 +15,12 @@ android {
 //        versionName rootProject.VersionName
         multiDexEnabled rootProject.ext.android.multiDexEnabled
         manifestPlaceholders = rootProject.ext.android.manifestPlaceholders
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     lintOptions {
@@ -89,6 +95,7 @@ dependencies {
 
     implementation rootProject.ext.dependence.libSupportV7
     annotationProcessor rootProject.ext.dependence.libButterKnifeCompile
+    compile project(path: ':BryanNotify')
 
     //统一com.android.support 的版本号
     configurations.all {

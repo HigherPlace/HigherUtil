@@ -80,9 +80,9 @@ dependencies {
 //    api project(':bryan_common')
 //    api project(':bryan_mvpframework')
 //    api project(':qrcodelib')
-    implementation 'com.github.HigherPlace.HigherUtil:bryan_mvpframework:v0.2.0'
-    implementation 'com.github.HigherPlace.HigherUtil:bryan_common:v0.2.0'
-    implementation 'com.github.HigherPlace.HigherUtil:qrcodelib:v0.2.0'
+    api 'com.github.HigherPlace.HigherUtil:bryan_mvpframework:v0.2.0'
+    api 'com.github.HigherPlace.HigherUtil:bryan_common:v0.2.0'
+    api 'com.github.HigherPlace.HigherUtil:qrcodelib:v0.2.0'
 
 
     //MultiDex

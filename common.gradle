@@ -7,7 +7,7 @@ ext {
                applicationId       : "com.higher.util",
                minSdkVersion       : 21,
                targetSdkVersion    : 22,
-               versionCode         : 20181010,
+               versionCode         : 20190323,
                versionName         : '1.0.0',
                multiDexEnabled     : true,
                manifestPlaceholders: [UMENG_CHANNEL_VALUE: 'HigherUtil']]

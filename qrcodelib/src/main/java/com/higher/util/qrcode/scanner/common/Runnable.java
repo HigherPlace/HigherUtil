@@ -6,22 +6,23 @@ import android.os.Build;
 
 /**
  * 兼容低版本的子线程开启任务
- * 
+ *
  * @author hugo
- * 
  */
 public class Runnable {
 
-	@SuppressLint("NewApi")
-	@SuppressWarnings("unchecked")
-	public static void execAsync(AsyncTask<?, ?, ?> task) {
-		if (Build.VERSION.SDK_INT >= 11) {
-			task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-		}
-		else {
-			task.execute();
-		}
-
-	}
+    @SuppressLint("NewApi")
+    @SuppressWarnings("unchecked")
+    public static void execAsync(AsyncTask<?, ?, ?> task) {
+        if (Build.VERSION.SDK_INT >= 11) {
+            try {
+                task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            } catch (Exception e) {
+                task.execute();
+            }
+        } else {
+            task.execute();
+        }
+    }
 
 }
