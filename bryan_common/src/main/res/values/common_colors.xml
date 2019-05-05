@@ -12,9 +12,8 @@
     <color name="red">#ff0000</color>
     <color name="green">#00ff00</color>
     <!--文字色调-->
-    <color name="main_color">#000000</color>
-    <color name="second_color">#3d4955</color>
-    <color name="third_color">#7a8b9b</color>
+
+
 
     <!--验证码输入框START-->
     <color name="underline_default_color">#222222</color>
