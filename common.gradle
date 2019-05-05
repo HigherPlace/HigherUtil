@@ -54,7 +54,7 @@ ext {
                    'StatusLayout'              : 'com.github.Bakumon:StatusLayoutManager:1.0.4',
                    'SmartRefreshLayout'        : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1',
                    'QMUI'                      : 'com.qmuiteam:qmui:1.1.6',
-                   'FastJson'                  : 'com.alibaba:fastjson:1.1.70.android',
+                   'FastJson'                  : 'com.alibaba:fastjson:1.1.71.android',
                    /*  'Glide'                     : 'jp.wasabeef:glide-transformations:3.3.0',*/
                    'Glide'                     : 'jp.wasabeef:glide-transformations:2.0.2',
                    'BaseAdapter'               : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40',
