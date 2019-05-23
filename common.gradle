@@ -46,7 +46,7 @@ ext {
 
                    /**/
                    'libSystembarTint'          : 'com.readystatesoftware.systembartint:systembartint:1.0.3',
-                   'libOkhttp'                 : 'com.squareup.okhttp3:okhttp:3.3.0',
+                   'libOkhttp'                 : 'com.squareup.okhttp3:okhttp:3.4.1',
                    /*Banner地址 - https://github.com/Bigkoo/Android-ConvenientBanner*/
                    'libBanner'                 : 'com.bigkoo:ConvenientBanner:2.1.4',
                    'Logger'                    : 'com.github.tianzhijiexian:logger:1.2.1',

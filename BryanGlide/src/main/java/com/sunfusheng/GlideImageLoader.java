@@ -28,7 +28,7 @@ public class GlideImageLoader {
     protected static final String FILE = "file://";
     protected static final String SEPARATOR = "/";
 
-    private String url;
+        private String url;
     private WeakReference<ImageView> imageViewWeakReference;
     private GlideRequest<Drawable> glideRequest;
 
