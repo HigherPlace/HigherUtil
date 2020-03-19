@@ -3,12 +3,13 @@ package com.app.base.module.base.view;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.app.base.BaseApplication;
 import com.app.base.constant.Constant;
@@ -18,8 +19,6 @@ import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import org.xutils.common.Callback;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Fragment的基类，不适用MVP
@@ -30,7 +29,6 @@ public abstract class BaseFragment extends Fragment {
     public String TAG = getClass().getSimpleName();
     protected Activity mActivity;
     protected Context mContext;
-    private Unbinder unbinder;
 
     //我们自己的Fragment需要缓存视图
     private View viewContent;//缓存视图
@@ -57,7 +55,6 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (viewContent == null) {
             viewContent = inflater.inflate(getContentView(), container, false);
-            unbinder = ButterKnife.bind(this, viewContent);
         }
 
         //判断Fragment对应的Activity是否存在这个试图
@@ -110,10 +107,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        if (unbinder != null) {
-            unbinder.unbind();
-            unbinder = null;
-        }
+
         if (cancelable != null) {
             cancelable.cancel();
         }

@@ -11,6 +11,8 @@ import android.view.MotionEvent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 
+import androidx.appcompat.widget.AppCompatEditText;
+
 import com.bryan.common.R;
 import com.bryan.common.widget.CodeInputView.callback.CodeInputCallback;
 import com.bryan.common.widget.CodeInputView.data.FixedStack;
@@ -21,7 +23,7 @@ import com.bryan.common.widget.CodeInputView.model.Underline;
  * Created by bajian on 2015/12/30.
  * email 313066164@qq.com
  */
-public class CodeInputEditText extends android.support.v7.widget.AppCompatEditText{
+public class CodeInputEditText extends AppCompatEditText {
 
     private static final int DEFAULT_CODES = 6;
     //    private static final Pattern KEYCODE_PATTERN = Pattern.compile("KEYCODE_(\\w)");

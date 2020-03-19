@@ -5,9 +5,10 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
 
 /**
  * Created by BinGe on 2017/9/26.

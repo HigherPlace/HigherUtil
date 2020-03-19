@@ -2,13 +2,13 @@
 
 ext {
 
-    android = [compileSdkVersion   : 28,
-               buildToolsVersion   : '28.0.2',
+    android = [compileSdkVersion   : 29,
+               buildToolsVersion   : '29.0.1',
                applicationId       : "com.higher.util",
                minSdkVersion       : 21,
-               targetSdkVersion    : 22,
-               versionCode         : 20190323,
-               versionName         : '1.0.0',
+               targetSdkVersion    : 29,
+               versionCode         : 20200319,
+               versionName         : '1.0.1',
                multiDexEnabled     : true,
                manifestPlaceholders: [UMENG_CHANNEL_VALUE: 'HigherUtil']]
 
@@ -19,27 +19,14 @@ ext {
 
     java = ['javaVersion': JavaVersion.VERSION_1_8]
 
-    def supportVersion = '28.0.0'
+
 
     dependence = [ /*统计一场类*/
                    'libUmengAnalytics'         : 'com.umeng.analytics:analytics:latest.integration',
                    'buglySdk'                  : 'com.tencent.bugly:crashreport:latest.release',
                    'buglyNdk'                  : 'com.tencent.bugly:nativecrashreport:latest.release',
-                   /*官方依赖库*/
-                   'libSupportGridLayout'      : "com.android.support:gridlayout-v7:${supportVersion}",
-                   'libSupportV7'              : "com.android.support:appcompat-v7:${supportVersion}",
-                   'libSupportMultidex'        : 'com.android.support:multidex:1.0.3',
-                   'libSupportAnnotations'     : "com.android.support:support-annotations:${supportVersion}",
-                   'libSupportV4'              : "com.android.support:support-v4:${supportVersion}",
-                   'libSupportDesign'          : "com.android.support:design:${supportVersion}",
-                   'libSupportRecyclerview'    : "com.android.support:recyclerview-v7:${supportVersion}",
-                   'libSupportCardview'        : "com.android.support:cardview-v7:${supportVersion}",
-                   'libSupportConstraintLayout': "com.android.support.constraint:constraint-layout:1.1.2",
                    /*其余的依赖库*/
                    'libCircleImageView'        : 'de.hdodenhof:circleimageview:2.1.0',
-                   /*ButterKnife*/
-                   'libButterKnife'            : "com.jakewharton:butterknife:8.8.1",
-                   'libButterKnifeCompile'     : "com.jakewharton:butterknife-compiler:8.8.1",
                    //ARouter
                    'libArouteApi'              : "com.alibaba:arouter-api:1.3.1",
                    'libArouteProcessor'        : "com.alibaba:arouter-compiler:1.1.4",

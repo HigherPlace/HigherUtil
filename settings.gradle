@@ -1,2 +1,1 @@
-include ':app', ':bryan_mvpframework', ':bryan_common', ':app_base_module', ':UpdateLib', ':qrcodelib', ':BryanGlide', ':BryanNotify'
-
+include ':app', ':bryan_mvpframework', ':bryan_common', ':UpdateLib', ':qrcodelib', ':lib_glide'

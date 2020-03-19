@@ -5,11 +5,12 @@ import android.app.ActivityManager;
 import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.multidex.MultiDexApplication;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.multidex.MultiDexApplication;
 
 import com.app.base.utils.user.AccountBean;
 import com.app.base.utils.CrashHandler;

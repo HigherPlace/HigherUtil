@@ -1,10 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.HigherPlace'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
-
+    buildToolsVersion "29.0.1"
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -49,5 +48,5 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api rootProject.ext.dependence.libSupportV7
+    implementation 'androidx.core:core:1.2.0'
 }

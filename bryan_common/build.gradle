@@ -1,21 +1,15 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.HigherPlace'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
-
+    buildToolsVersion "29.0.1"
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode 20180914
+        versionCode 202003161
         versionName "1.1"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
-            }
-        }
     }
 
     lintOptions {
@@ -63,14 +57,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'design'
         exclude group: 'com.android.support', module: 'gridlayout-v7'
     }
-    api rootProject.ext.dependence.libSupportGridLayout
-    api rootProject.ext.dependence.libSupportDesign
-    api rootProject.ext.dependence.libSupportV7
-    //日期时间选择器End
-    api rootProject.ext.dependence.libSupportRecyclerview
-    api rootProject.ext.dependence.libSupportV4
-    api rootProject.ext.dependence.libSupportRecyclerview
-    api rootProject.ext.dependence.libSupportCardview
     api rootProject.ext.dependence.buglySdk
     api rootProject.ext.dependence.buglyNdk
     //引入MMKV

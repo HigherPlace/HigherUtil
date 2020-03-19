@@ -2,24 +2,22 @@ package com.app.base.module.base.view;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
 
 import com.bryan.common.utils.ToastMgr;
 import com.bryan.mvp.base.presenter.MvpPresenter;
 import com.bryan.mvp.support.lce.MvpLceView;
 import com.bryan.mvp.support.lce.impl.MvpLceFragment;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public abstract class BaseMvpLceFragment<M, V extends MvpLceView<M>, P extends MvpPresenter<V>> extends MvpLceFragment<M, V, P> {
 
     public String TAG = getClass().getSimpleName();
     protected Activity mActivity;
-    private Unbinder unbinder;
 
     //我们自己的Fragment需要缓存视图
     private View viewContent;//缓存视图
@@ -37,7 +35,6 @@ public abstract class BaseMvpLceFragment<M, V extends MvpLceView<M>, P extends M
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (viewContent == null) {
             viewContent = inflater.inflate(getContentView(), container, false);
-            unbinder = ButterKnife.bind(this, viewContent);
         }
 
         //判断Fragment对应的Activity是否存在这个视图
@@ -95,10 +92,6 @@ public abstract class BaseMvpLceFragment<M, V extends MvpLceView<M>, P extends M
 
     @Override
     public void onDestroyView() {
-        if (unbinder != null) {
-            unbinder.unbind();
-            unbinder = null;
-        }
         super.onDestroyView();
     }
 

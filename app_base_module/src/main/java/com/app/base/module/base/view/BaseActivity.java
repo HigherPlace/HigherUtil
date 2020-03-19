@@ -5,9 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
+
+import androidx.annotation.Nullable;
 
 import com.app.base.BaseApplication;
 import com.app.base.R;
@@ -28,7 +29,6 @@ import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import org.xutils.common.Callback;
 
-import butterknife.ButterKnife;
 
 /**
  * Created by bryan on 2018/2/6 0006.
@@ -53,7 +53,6 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
         beforeSetContentView();
         LogUtils.i(TAG, "onCreate");
         setContentView(getContentViewId());
-        ButterKnife.bind(this);
         AppManager.getAppManager().addActivity(this);
 
         init(savedInstanceState);

@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.HigherPlace'
 
 android {
@@ -77,22 +75,20 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    api project(':bryan_common')
-//    api project(':bryan_mvpframework')
-//    api project(':qrcodelib')
-    api 'com.github.HigherPlace.HigherUtil:bryan_mvpframework:v0.2.0'
-    api 'com.github.HigherPlace.HigherUtil:bryan_common:v0.2.0'
-    api 'com.github.HigherPlace.HigherUtil:qrcodelib:v0.2.0'
+    api project(':bryan_common')
+    api project(':bryan_mvpframework')
+    api project(':qrcodelib')
+//    api 'com.github.HigherPlace.HigherUtil:bryan_mvpframework:v0.2.0'
+//    api 'com.github.HigherPlace.HigherUtil:bryan_common:v0.2.0'
+//    api 'com.github.HigherPlace.HigherUtil:qrcodelib:v0.2.0'
+
+    api 'androidx.multidex:multidex:2.0.1'
 
 
-    //MultiDex
-    api rootProject.ext.dependence.libSupportMultidex
+
     //ARoute
     api rootProject.ext.dependence.libArouteApi
     annotationProcessor rootProject.ext.dependence.libArouteProcessor
-    //ButterKnife
-    api rootProject.ext.dependence.libButterKnife
-    annotationProcessor rootProject.ext.dependence.libButterKnifeCompile
     //ossStart
     implementation files('libs/aliyun-oss-sdk-android-2.3.0.jar')
     implementation files('libs/okio-1.10.0.jar')

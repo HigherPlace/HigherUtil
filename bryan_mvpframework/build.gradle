@@ -1,21 +1,15 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.HigherPlace'
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
-            }
-        }
     }
 
     lintOptions {
@@ -52,8 +46,5 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     api 'com.github.HigherPlace:AutoLayout:1.0.6'
-    implementation rootProject.ext.dependence.libSupportV7
-    implementation rootProject.ext.dependence.libSupportV4
-
 
 }

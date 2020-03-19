@@ -2,7 +2,8 @@ package com.bryan.mvp.support.view;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import com.bryan.autolayout.AutoLayoutActivity;
 import com.bryan.mvp.base.presenter.MvpPresenter;

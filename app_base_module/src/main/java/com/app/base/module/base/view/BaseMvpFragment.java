@@ -3,11 +3,12 @@ package com.app.base.module.base.view;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.app.base.BaseApplication;
 import com.app.base.constant.Constant;
@@ -20,9 +21,6 @@ import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import org.xutils.common.Callback;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 /**
  * 使用MVP时候使用的基类
  * Created by bryan on 2018/2/6 0006.
@@ -32,7 +30,6 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends MvpBasePresen
     public String TAG = getClass().getSimpleName();
     protected Activity mActivity;
     protected Context mContext;
-    private Unbinder unbinder;
 
     //我们自己的Fragment需要缓存视图
     private View viewContent;//缓存视图
@@ -56,7 +53,6 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends MvpBasePresen
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (viewContent == null) {
             viewContent = inflater.inflate(getContentView(), container, false);
-            unbinder = ButterKnife.bind(this, viewContent);
         }
         //判断Fragment对应的Activity是否存在这个试图
         ViewGroup parent = (ViewGroup) viewContent.getParent();
@@ -106,10 +102,6 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends MvpBasePresen
 
     @Override
     public void onDestroyView() {
-        if (unbinder != null) {
-            unbinder.unbind();
-            unbinder = null;
-        }
         if (cancelable != null) {
             cancelable.cancel();
         }

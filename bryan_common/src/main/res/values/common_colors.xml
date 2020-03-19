@@ -14,7 +14,6 @@
     <!--文字色调-->
 
 
-
     <!--验证码输入框START-->
     <color name="underline_default_color">#222222</color>
     <color name="underline_selected_color">#222222</color>
@@ -34,8 +33,8 @@
     <color name="node_gray_color">#7a8b9b</color>
     <color name="node_divide_color">#e6e6e6</color>
     <color name="node_theme_color">#2aa7f7</color>
+    <color name="theme_color">#2aa7f7</color>
     <!--NodeView的颜色End-->
-
 
 
 </resources>

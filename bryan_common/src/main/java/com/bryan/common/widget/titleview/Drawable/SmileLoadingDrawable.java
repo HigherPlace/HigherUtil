@@ -7,7 +7,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.bryan.common.widget.titleview.anim.CosInterpolator;
 import com.bryan.common.widget.titleview.anim.ValueAnimation;

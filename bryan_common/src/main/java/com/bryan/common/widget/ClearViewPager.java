@@ -1,10 +1,11 @@
 package com.bryan.common.widget;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * 没有动画效果，不能滑动的ViewPager

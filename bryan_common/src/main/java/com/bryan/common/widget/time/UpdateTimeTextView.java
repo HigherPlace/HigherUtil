@@ -3,10 +3,11 @@ package com.bryan.common.widget.time;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.bryan.common.utils.WeakHandler;
 

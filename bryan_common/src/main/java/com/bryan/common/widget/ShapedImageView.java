@@ -13,11 +13,13 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 import com.bryan.common.R;
 
 import java.util.Arrays;
 
-public class ShapedImageView extends android.support.v7.widget.AppCompatImageView {
+public class ShapedImageView extends AppCompatImageView {
 
 	private static final int SHAPE_MODE_ROUND_RECT = 1;
 	private static final int SHAPE_MODE_CIRCLE = 2;

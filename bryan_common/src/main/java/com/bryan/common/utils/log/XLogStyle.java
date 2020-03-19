@@ -1,7 +1,7 @@
 package com.bryan.common.utils.log;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrintStyle;
