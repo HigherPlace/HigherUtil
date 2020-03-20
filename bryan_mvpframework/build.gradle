@@ -45,6 +45,6 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'com.github.HigherPlace:AutoLayout:1.0.6'
+    api 'com.github.HigherPlace:AutoLayout:1.1.0'
 
 }
