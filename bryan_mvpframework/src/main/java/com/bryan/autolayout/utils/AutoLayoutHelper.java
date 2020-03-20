@@ -23,7 +23,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bryan.autolayout.AutoLayoutInfo;
-import com.bryan.autolayout.R;
 import com.bryan.autolayout.attrs.HeightAttr;
 import com.bryan.autolayout.attrs.MarginAttr;
 import com.bryan.autolayout.attrs.MarginBottomAttr;
@@ -42,6 +41,7 @@ import com.bryan.autolayout.attrs.PaddingTopAttr;
 import com.bryan.autolayout.attrs.TextSizeAttr;
 import com.bryan.autolayout.attrs.WidthAttr;
 import com.bryan.autolayout.config.AutoLayoutConifg;
+import com.bryan.mvp.R;
 
 /**
  * 这个类是关键类

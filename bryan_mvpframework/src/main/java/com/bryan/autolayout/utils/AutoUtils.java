@@ -3,10 +3,10 @@ package com.bryan.autolayout.utils;
 import android.view.View;
 
 import com.bryan.autolayout.AutoLayoutInfo;
-import com.bryan.autolayout.R;
 import com.bryan.autolayout.attrs.Attrs;
 import com.bryan.autolayout.attrs.AutoAttr;
 import com.bryan.autolayout.config.AutoLayoutConifg;
+import com.bryan.mvp.R;
 
 /**
  * Created by zhy on 15/12/4.
